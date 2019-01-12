@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,9 +9,62 @@ namespace WebApplication1.Models
 {
     public static class DbInitializer
     {
+
+        public async static void SeedUsersAndRoles(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        {
+            if (!roleManager.RoleExistsAsync("Admin").Result)
+            {
+                IdentityRole role = new IdentityRole();
+                role.Name = "Admin";
+                IdentityResult roleResult = roleManager.
+                CreateAsync(role).Result;
+            }
+            if (!roleManager.RoleExistsAsync("User").Result)
+            {
+                IdentityRole role = new IdentityRole();
+                role.Name = "User";
+                IdentityResult roleResult = roleManager.
+                CreateAsync(role).Result;
+            }
+
+            if (userManager.FindByNameAsync("Admin").Result == null)
+            {
+                IdentityUser user = new IdentityUser();
+                user.UserName = "Admin";
+
+
+                IdentityResult result = userManager.CreateAsync
+                (user, "P@ssw0rd").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user,
+                                        "Admin").Wait();
+                }
+            }
+
+            if (userManager.FindByNameAsync("User").Result == null)
+            {
+                IdentityUser user2 = new IdentityUser();
+                user2.UserName = "User";
+
+
+                IdentityResult result2 = userManager.CreateAsync
+                (user2, "P@ssw0rd").Result;
+
+                if (result2.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user2,
+                                        "User").Wait();
+                }
+            }
+
+        }
+
         public static void Seed(AppDbContext context)
         {
-            if(!context.Pies.Any())
+            context.Database.Migrate();
+            if (!context.Pies.Any())
             {
                 context.AddRange
                 (

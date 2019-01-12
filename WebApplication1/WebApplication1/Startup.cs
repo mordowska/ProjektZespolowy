@@ -31,7 +31,6 @@ namespace WebApplication1
                 options.Password.RequiredLength = 8;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequireUppercase = true;
-                options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>();
 
             services.AddTransient<IPieRepository, PieRepository>();

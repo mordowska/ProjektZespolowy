@@ -14,10 +14,13 @@ namespace WebApplication1.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager,
+             RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
+            _roleManager = roleManager;
             _userManager = userManager;
         }
 
@@ -63,9 +66,12 @@ namespace WebApplication1.Controllers
                 { UserName = loginViewModel.UserName };
                 var result =
                     await _userManager.CreateAsync(user, loginViewModel.Password);
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    var role = await _roleManager.FindByNameAsync("User");
+
+                    await _userManager.AddToRoleAsync(user, role.Name);
+
                 }
 
             }

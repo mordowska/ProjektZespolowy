@@ -94,7 +94,7 @@ WriteAttributeValue("", 186, pie.ImageThumbnailUrl, 186, 22, false);
             WriteLiteral("</h3>\r\n                <h3>");
             EndContext();
             BeginContext(326, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edc8309af75340efbd2a119505479f41", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c8f2609492cc4d27ad1e13c73983966a", async() => {
                 BeginContext(420, 8, false);
 #line 13 "D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\Views\Home\Index.cshtml"
                                          Write(pie.Name);
