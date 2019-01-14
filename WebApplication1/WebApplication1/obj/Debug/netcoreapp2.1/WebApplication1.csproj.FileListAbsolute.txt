@@ -36,3 +36,7 @@ D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\D
 D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Admin\EditRole.g.cshtml.cs
 D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Admin\RoleManagement.g.cshtml.cs
 D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AddUserToRole.g.cshtml.cs
+D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\PieManagement\AddPie.g.cshtml.cs
+D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\PieManagement\EditPie.g.cshtml.cs
+D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\PieManagement\DeletePie.g.cshtml.cs
+D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\PieManagement\Index.g.cshtml.cs

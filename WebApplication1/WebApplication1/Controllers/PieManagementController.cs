@@ -60,7 +60,7 @@ namespace WebApplication1.Controllers
         }
 
 
-        public IActionResult EditPie([FromQuery]int id)
+        public IActionResult EditPie(int id)
         {
             var categories = _categoryRepository.Categories;
 
@@ -93,7 +93,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeletePie([FromQuery]int Id)
+        public IActionResult DeletePie(int Id)
         {
             var pie = _pieRepository.GetPieById(Id);
             _pieRepository.DeletePie(pie);

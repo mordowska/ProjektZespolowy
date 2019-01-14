@@ -16,5 +16,7 @@ namespace WebApplication1.Models
         public string ImageThumbnailUrl { get; set; }
         public bool IsPieOfWeek { get; set; }
         public bool IsInStock { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

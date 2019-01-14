@@ -17,7 +17,7 @@ namespace WebApplication1.Models
         }
 
         public DbSet<Pie> Pies { get; set; }
-
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
     }
 }
