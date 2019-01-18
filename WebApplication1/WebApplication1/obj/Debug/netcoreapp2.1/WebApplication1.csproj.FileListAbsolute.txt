@@ -40,3 +40,5 @@ D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\D
 D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\PieManagement\EditPie.g.cshtml.cs
 D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\PieManagement\DeletePie.g.cshtml.cs
 D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\PieManagement\Index.g.cshtml.cs
+D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutUA.g.cshtml.cs
+D:\Users\bialaporcelana\Desktop\szkola\net\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Shared\PiePartial.g.cshtml.cs
