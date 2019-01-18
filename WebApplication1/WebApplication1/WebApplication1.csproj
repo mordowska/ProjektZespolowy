@@ -369,4 +369,10 @@
     <None Include="wwwroot\lib\jquery\src\wrap.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Shared\_LayoutUA.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
