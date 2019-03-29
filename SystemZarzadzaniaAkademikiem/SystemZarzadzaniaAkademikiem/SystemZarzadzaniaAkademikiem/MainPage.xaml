@@ -6,9 +6,10 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="Witam w systemie ustalania miejsc w uczelnianym akademiku. Kliknij guzik  Rozpocznij aby rozpocząć." 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <Button Text="Rozpocznij"/>
     </StackLayout>
 
 </ContentPage>
