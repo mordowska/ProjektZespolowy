@@ -1,4 +1,5 @@
 ﻿using System;
+using SystemZarzadzaniaAkademikiem.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace SystemZarzadzaniaAkademikiem
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage( new ImportantDataPage());
         }
 
         protected override void OnStart()

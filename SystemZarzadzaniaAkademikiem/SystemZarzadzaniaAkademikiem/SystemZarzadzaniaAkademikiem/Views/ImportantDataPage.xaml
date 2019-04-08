@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaAkademikiem.Views.ImportantDataPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Proszę wypełnić podstawowe dane wymagane do potwierdzenia tożsamości." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Grid BackgroundColor="Red">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid BackgroundColor="Yellow"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Text="Imię: " BackgroundColor="Silver"
+                   />
+                <Entry Placeholder="Imię" Grid.Column="1" Grid.Row="0"
+                   BackgroundColor="Silver"/>
+                <Label Text="Nazwisko: " Grid.Column="0" Grid.Row="1" BackgroundColor="Silver"/>
+                <Entry Placeholder="Nazwisko" Grid.Column="1" Grid.Row="1" BackgroundColor="Silver"/>
+                <Label Text="Indeks: " Grid.Column="0" Grid.Row="2" BackgroundColor="Silver"/>
+                <Entry Placeholder="Indeks" Grid.Column="1" Grid.Row="2" BackgroundColor="Silver"/>
+            </Grid>
+                <BoxView BackgroundColor="Aqua" Grid.Row="1" Grid.Column="0"></BoxView>
+                <BoxView BackgroundColor="Aqua" Grid.Row="2" Grid.Column="0"></BoxView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

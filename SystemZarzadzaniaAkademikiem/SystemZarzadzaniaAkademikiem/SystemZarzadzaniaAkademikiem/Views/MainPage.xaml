@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SystemZarzadzaniaAkademikiem"
              x:Class="SystemZarzadzaniaAkademikiem.MainPage">
-
+    <ContentPage.Content>
     <StackLayout>
         <!-- Place new controls here -->
         <Label Text="Witam w systemie ustalania miejsc w uczelnianym akademiku. Kliknij guzik  Rozpocznij aby rozpocząć." 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
-        <Button Text="Rozpocznij"/>
+            <Button Text="Rozpocznij" Clicked="Button_ClickedAsync"/>
     </StackLayout>
-
+    </ContentPage.Content>
 </ContentPage>
