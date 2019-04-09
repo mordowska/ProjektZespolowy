@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:SystemZarzadzaniaAkademikiem"
              x:Class="SystemZarzadzaniaAkademikiem.MainPage">
     <ContentPage.Content>
-    <StackLayout>
+    <StackLayout Padding="50">
         <!-- Place new controls here -->
         <Label Text="Witam w systemie ustalania miejsc w uczelnianym akademiku. Kliknij guzik  Rozpocznij aby rozpocząć." 
            HorizontalOptions="Center"

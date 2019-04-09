@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace SystemZarzadzaniaAkademikiem.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ImportantDataPage : ContentPage
+	public partial class SpecificDataPage1 : ContentPage
 	{
-		public ImportantDataPage ()
+		public SpecificDataPage1 ()
 		{
 			InitializeComponent ();
 		}
-
-        private async void Button_ClickedAsync(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SpecificDataPage1());
-        }
-    }
+	}
 }
