@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace SystemZarzadzaniaAkademikiem.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SpecificDataPage1 : ContentPage
 	{
 		public SpecificDataPage1 ()

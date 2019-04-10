@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SystemZarzadzaniaAkademikiem.Views.SpecificDataPage1">
+             xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
+    x:Class="SystemZarzadzaniaAkademikiem.Views.SpecificDataPage1">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Proszę wypełnić specyficzne dane, które pozwolą nam wspomóc cie w wybraniu doskonałego pokoju do twych potrzeb." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
@@ -28,6 +29,11 @@
                 </Grid>
                 <Grid Grid.Column="1"/>
             </Grid>
+            <ia:Checkbox x:Name="AwesomeCheckbox"
+    OutlineColor="Blue"
+    FillColor="Blue"
+    CheckColor="White"
+    Shape="Rectangle"  />
             <Button Text="Dalej"/>
         </StackLayout>
     </ContentPage.Content>
