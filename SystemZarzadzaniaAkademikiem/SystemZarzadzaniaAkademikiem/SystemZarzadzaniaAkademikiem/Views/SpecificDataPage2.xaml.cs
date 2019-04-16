@@ -9,15 +9,15 @@ using Xamarin.Forms.Xaml;
 
 namespace SystemZarzadzaniaAkademikiem.Views
 {
-	public partial class SpecificDataPage1 : ContentPage
+	public partial class SpecificDataPage2 : ContentPage
 	{
-		public SpecificDataPage1 ()
+		public SpecificDataPage2 ()
 		{
 			InitializeComponent ();
 		}
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SpecificDataPage2());
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }

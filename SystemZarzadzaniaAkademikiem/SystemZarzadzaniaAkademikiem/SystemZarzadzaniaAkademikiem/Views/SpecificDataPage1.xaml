@@ -16,12 +16,71 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Text="Czy palisz papierosy?"
+                    <Label Grid.Column="0" Grid.Row="0" Text="Wybierz preferowane piętro"
                    />
-                    <Picker Grid.Column="1">
+                    <Picker x:Name="Floor" Grid.Column="1">
+                        <Picker.Items>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                    <Label Grid.Column="0" Grid.Row="1" Text="Wolisz łóżko przy oknie czy przy drzwiach?"
+                   />
+                    <Picker x:Name="BedLocation" Grid.Column="1" Grid.Row="1">
+                        <Picker.Items>
+                            <x:String>Przy oknie</x:String>
+                            <x:String>Przy drzwiach</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                    <Label Grid.Column="0" Grid.Row="2" Text="Kiedy zazwyczaj chodzisz spać?"
+                   />
+                    <Picker x:Name="SleepTime" Grid.Column="1" Grid.Row="2">
+                        <Picker.Items>
+                            <x:String>Przed 22.30</x:String>
+                            <x:String>22.30-24</x:String>
+                            <x:String>Po 24</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                    <Label Grid.Column="0" Grid.Row="3" Text="Kiedy zazwyczaj wstajesz?"
+                   />
+                    <Picker x:Name="WakeUpTime" Grid.Column="1" Grid.Row="3">
+                        <Picker.Items>
+                            <x:String>Przed 6.00</x:String>
+                            <x:String>6.00-8.00</x:String>
+                            <x:String>8.00-10.00</x:String>
+                            <x:String>10.00-12.00</x:String>
+                            <x:String>Po 12.00</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                    <Label Grid.Column="0" Grid.Row="4" Text="Wolisz gdy w pokoju jest cieplej czy chłodniej?"
+                   />
+                    <Picker x:Name="HotOrNot" Grid.Column="1" Grid.Row="4">
+                        <Picker.Items>
+                            <x:String>Cieplej</x:String>
+                            <x:String>Chłodniej</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                    <Label Grid.Column="0" Grid.Row="5" Text="Gdy słuchasz muzyki, wolisz słuchać ją przy pomocy głośników czy słuchawek?"
+                   />
+                    <Picker x:Name="Music" Grid.Column="1" Grid.Row="5">
+                        <Picker.Items>
+                            <x:String>Słuchawki</x:String>
+                            <x:String>Głośniki</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                    <Label Grid.Column="0" Grid.Row="6" Text="Czy sprzątasz systematycznie?"
+                   />
+                    <Picker x:Name="CleanUp" Grid.Column="1" Grid.Row="6">
                         <Picker.Items>
                             <x:String>Tak</x:String>
-                            <x:String>Rzadko</x:String>
                             <x:String>Nie</x:String>
                         </Picker.Items>
                         <Picker.SelectedIndex>0</Picker.SelectedIndex>
@@ -29,12 +88,7 @@
                 </Grid>
                 <Grid Grid.Column="1"/>
             </Grid>
-            <ia:Checkbox x:Name="AwesomeCheckbox"
-    OutlineColor="Blue"
-    FillColor="Blue"
-    CheckColor="White"
-    Shape="Rectangle"  />
-            <Button Text="Dalej"/>
+            <Button Text="Dalej" Clicked="Button_ClickedAsync"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
