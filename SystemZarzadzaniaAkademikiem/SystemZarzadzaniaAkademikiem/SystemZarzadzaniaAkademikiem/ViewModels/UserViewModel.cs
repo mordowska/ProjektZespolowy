@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Validators;
+using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
@@ -11,6 +13,20 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private string _name = "";
         private string _lastname = "";
         private string _index = "";
+        private string _sex = "";
+        private int _floor;
+        private string _bedLocation  = "";
+        private string _sleepTime  = "";
+        private string _wakeUpTime  = "";
+        private string _hotOrNot  = "";
+        private string music  = "";
+        private bool _cleanUp;
+        private string _talkative  = "";
+        private string _studyField  = "";
+        private bool _sporting;
+        private string _homeBack  = "";
+        private bool _smoking;
+        private string _party  = "";
 
         private string _nameError = "";
         private string _lastnameError = "";
@@ -21,6 +37,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             _name = user?.Name;
             _lastname = user?.Lastname;
             _index = user?.Index;
+            _sex = user?.Sex;
+            //_floor = user?.Floor;
         }
 
         #region
@@ -99,5 +117,23 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
 
         #endregion
+
+        public ICommand SavePreferencesCommand => new Command(SavePreferences);
+
+        private void SavePreferences()
+        {
+            bool valid = Validate();
+            if (valid)
+            {
+                User user = new User
+                {
+                    Name = Name,
+                    Lastname = Lastname,
+                    Index = Index,
+                    Sex = _sex
+
+                };
+            }
+        }
     }
 }
