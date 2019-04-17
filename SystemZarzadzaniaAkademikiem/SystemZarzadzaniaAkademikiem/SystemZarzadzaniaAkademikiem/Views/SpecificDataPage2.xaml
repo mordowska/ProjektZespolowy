@@ -6,12 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Proszę wypełnić specyficzne dane, które pozwolą nam wspomóc cie w wybraniu doskonałego pokoju do twych potrzeb." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-            <Grid HorizontalOptions="FillAndExpand" Padding="50">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid>
+            <Grid Padding="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
@@ -75,9 +70,7 @@
                         <Picker.SelectedIndex>0</Picker.SelectedIndex>
                     </Picker>
                 </Grid>
-                <Grid Grid.Column="1"/>
-            </Grid>
-            <Button Text="Zapisz" Clicked="{Binding SavePreferencesCommand}"/>
+                <Button Text="Zapisz" Command="{Binding SavePreferencesCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
