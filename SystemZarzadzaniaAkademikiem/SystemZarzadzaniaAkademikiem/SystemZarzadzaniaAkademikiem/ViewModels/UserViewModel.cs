@@ -14,19 +14,19 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private string _lastname = "";
         private string _index = "";
         private string _sex = "";
-        private int _floor;
-        private string _bedLocation  = "";
-        private string _sleepTime  = "";
-        private string _wakeUpTime  = "";
-        private string _hotOrNot  = "";
-        private string music  = "";
-        private bool _cleanUp;
-        private string _talkative  = "";
-        private string _studyField  = "";
-        private bool _sporting;
-        private string _homeBack  = "";
-        private bool _smoking;
-        private string _party  = "";
+        private string _floor = "";
+        private string _bedLocation = "";
+        private string _sleepTime = "";
+        private string _wakeUpTime = "";
+        private string _hotOrNot = "";
+        private string _music = "";
+        private string _cleanUp = "";
+        private string _talkative = "";
+        private string _studyField = "";
+        private string _sporting = "";
+        private string _homeBack = "";
+        private string _smoking = "";
+        private string _party = "";
 
         private string _nameError = "";
         private string _lastnameError = "";
@@ -38,7 +38,19 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             _lastname = user?.Lastname;
             _index = user?.Index;
             _sex = user?.Sex;
-            //_floor = user?.Floor;
+            _floor = user?.Floor;
+            _bedLocation = user?.BedLocation;
+            _sleepTime = user?.SleepTime;
+            _wakeUpTime = user?.WakeUpTime;
+            _hotOrNot = user?.HotOrNot;
+            _music = user?.Music;
+            _cleanUp = user?.CleanUp;
+            _talkative = user?.Talkative;
+            _studyField = user?.StudyField;
+            _sporting = user?.Sporting;
+            _homeBack = user?.HomeBack;
+            _smoking = user?.Smoking;
+            _party = user?.Party;
         }
 
         #region
@@ -130,7 +142,20 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                     Name = Name,
                     Lastname = Lastname,
                     Index = Index,
-                    Sex = _sex
+                    Sex = _sex,
+                    Floor = _floor,
+                    BedLocation = _bedLocation,
+                    SleepTime = _sleepTime,
+                    WakeUpTime = _wakeUpTime,
+                    HotOrNot = _hotOrNot,
+                    Music = _music,
+                    CleanUp = _cleanUp,
+                    Talkative = _talkative,
+                    StudyField = _studyField,
+                    Sporting = _smoking,
+                    HomeBack = _homeBack,
+                    Smoking = _smoking,
+                    Party = _party
 
                 };
             }

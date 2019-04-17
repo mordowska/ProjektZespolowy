@@ -11,18 +11,18 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public string Lastname { set; get; }
         public string Index { set; get; }
         public string Sex { set; get; }
-        public int Floor { set; get; }
+        public string Floor { set; get; }
         public string BedLocation { set; get; }
         public string SleepTime { set; get; }
         public string WakeUpTime { set; get; }
         public string HotOrNot { set; get; }
         public string Music { set; get; }
-        public bool CleanUp { set; get; }
+        public string CleanUp { set; get; }
         public string Talkative { set; get; }
         public string StudyField { set; get; }
-        public bool Sporting { set; get; }
+        public string Sporting { set; get; }
         public string HomeBack { set; get; }
-        public bool Smoking { set; get; }
+        public string Smoking { set; get; }
         public string Party { set; get; }
         public int Room { set; get; }
     }
