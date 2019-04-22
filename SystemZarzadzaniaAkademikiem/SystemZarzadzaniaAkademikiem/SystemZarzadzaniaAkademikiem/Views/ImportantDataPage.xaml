@@ -32,7 +32,7 @@
                 </Grid>
                 <Grid Grid.Column="1"/>
             </Grid>
-            <Button Text="Dalej" Clicked="Button_ClickedAsync"/>
+            <Button Text="Dalej" Command="{Binding SaveImportantDataPreferences}" Clicked="Button_ClickedAsync"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

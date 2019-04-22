@@ -12,11 +12,12 @@ namespace SystemZarzadzaniaAkademikiem.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ImportantDataPage : ContentPage
 	{
-        private UserViewModel userViewModel;
+        private ImportantDataViewModel viewModel;
         public ImportantDataPage ()
 		{
 			InitializeComponent ();
-            userViewModel = new UserViewModel();
+            viewModel = new ImportantDataViewModel();
+            BindingContext = viewModel;
         }
 
         private async void Button_ClickedAsync(object sender, EventArgs e)

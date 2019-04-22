@@ -70,7 +70,7 @@
                         <Picker.SelectedIndex>0</Picker.SelectedIndex>
                     </Picker>
                 </Grid>
-                <Button Text="Zapisz" Command="{Binding SavePreferencesCommand}"/>
+            <Button Text="Dalej" Clicked="Button_ClickedAsync"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

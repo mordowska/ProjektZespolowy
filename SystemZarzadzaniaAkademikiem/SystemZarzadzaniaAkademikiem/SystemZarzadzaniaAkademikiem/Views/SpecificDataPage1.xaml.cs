@@ -11,7 +11,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 {
 	public partial class SpecificDataPage1 : ContentPage
 	{
-		public SpecificDataPage1 ()
+		public SpecificDataPage1 (int index)
 		{
 			InitializeComponent ();
 		}
