@@ -22,7 +22,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SpecificDataPage1());
+            await Navigation.PushAsync(new SpecificDataPage1(1));
         }
     }
 }

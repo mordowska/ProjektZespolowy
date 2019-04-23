@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using SystemZarzadzaniaAkademikiem.Models;
+using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     class ImportantDataViewModel : BaseViewModel
     {
+        MockDataStore MockDataStore;
         private string _name = "";
         private string _lastname = "";
         private string _index = "";
@@ -100,8 +103,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
 
         #endregion
-        public ICommand SaveImportantDataPreferencesCommand => new Command(SaveImportantDataPreferences);
-        private void SaveImportantDataPreferences()
+        public ICommand SaveImportantDataPreferencesCommand => new Command(SaveImportantDataPreferencesAsync);
+        private async void SaveImportantDataPreferencesAsync()
         {
             bool valid = Validate();
             if (valid)
@@ -113,6 +116,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                     Index = Index,
                     Sex = _sex
                 };
+                await MockDataStore.AddUserAsync(user);
             }
         }
     }
