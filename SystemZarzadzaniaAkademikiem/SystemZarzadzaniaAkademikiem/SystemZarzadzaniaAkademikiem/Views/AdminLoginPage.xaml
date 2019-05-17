@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaAkademikiem.Views.AdminLoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Admin Login Page. If you are authorized please enter credentials below. If you entered this page by accident please contact one of the employees for help."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Login"></Label>
+            <Entry Placeholder="Login"></Entry>
+            <Label Text="Password"></Label>
+            <Entry Placeholder="Password"></Entry>
+            <Button Text="Log in"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
