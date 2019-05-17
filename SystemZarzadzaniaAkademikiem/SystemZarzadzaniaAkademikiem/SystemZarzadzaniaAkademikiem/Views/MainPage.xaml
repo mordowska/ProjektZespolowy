@@ -11,27 +11,15 @@
     
     <ContentPage.Content>
         <StackLayout Padding="50">
-        <ListView x:Name="MyListView"
-            RefreshCommand="{Binding LoadUsersCommand}"
-            ItemsSource="{Binding Users}"
-            VerticalOptions="FillAndExpand"
-            CachingStrategy="RecycleElement">
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Name}" FontSize="16" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        
-        <!-- Place new controls here -->
+            <!-- Place new controls here -->
             <Label Text="Witam w systemie ustalania miejsc w uczelnianym akademiku. Kliknij guzik  Rozpocznij aby rozpocząć." 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ActivateAdminLogin}" />
+                </Label.GestureRecognizers>
+            </Label>
             <Button Text="Rozpocznij" Clicked="Button_ClickedAsync"/>
     </StackLayout>
     </ContentPage.Content>
