@@ -1,40 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using SQLite;
+using SQLite.Net.Cipher.Data;
+using SQLite.Net.Interop;
 using SystemZarzadzaniaAkademikiem.Models;
 
 namespace SystemZarzadzaniaAkademikiem.Data
 {
-    public class AppDatabase
+    public class AppDatabase : SecureDatabase
     {
-        readonly SQLiteAsyncConnection _database;
-        public AppDatabase(string dbPath)
+        public SQLiteAsyncConnection Database { get; }
+        public AppDatabase(ISQLitePlatform platform, string dbfile, string someSalt) : base(platform, dbfile, someSalt)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<User>().Wait();
+            Database = new SQLiteAsyncConnection(dbfile);
         }
-        public Task<List<User>> GetUsersAsync()
+        protected override void CreateTables()
         {
-            return _database.Table<User>().ToListAsync();
-        }
-        public Task<User> GetUserAsync(int id)
-        {
-            return _database.Table<User>().Where(i => i.Id == id).FirstOrDefaultAsync();
-        }
-        public Task<int> SaveUserAsync(User user)
-        {
-            if(user.Id != 0)
-            {
-                return _database.UpdateAsync(user);
-            }
-            else
-            {
-                return _database.InsertAsync(user);
-            }
-        }
-        public Task<int> DeleteUserAsync(User user)
-        {
-            return _database.DeleteAsync(user);
+            Database.CreateTableAsync<Admin>().Wait();
+            Database.CreateTableAsync<User>().Wait();
         }
     }
 }
