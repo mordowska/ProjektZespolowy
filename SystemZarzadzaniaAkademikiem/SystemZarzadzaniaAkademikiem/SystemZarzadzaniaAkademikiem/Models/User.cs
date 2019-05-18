@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using SQLite;
 namespace SystemZarzadzaniaAkademikiem.Models
 {
     public class User
     {
-        public int Id;
+        [PrimaryKey,AutoIncrement]
+        public int Id { get; set; }
+        [NotNull]
         public string Name { set; get; }
+        [NotNull]
         public string Lastname { set; get; }
+        [NotNull,Unique]
         public string Index { set; get; }
+        [NotNull]
         public string Sex { set; get; }
         public string Floor { set; get; }
         public string BedLocation { set; get; }

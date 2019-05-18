@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using SystemZarzadzaniaAkademikiem.Views;
-using SystemZarzadzaniaAkademikiem.Services;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using SystemZarzadzaniaAkademikiem.Models;
