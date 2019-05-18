@@ -11,6 +11,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
         {
             InitializeComponent();
             BindingContext = viewModel = new MainPageViewModel();
+            
         }
 
         async void Button_ClickedAsync(object sender, EventArgs e)

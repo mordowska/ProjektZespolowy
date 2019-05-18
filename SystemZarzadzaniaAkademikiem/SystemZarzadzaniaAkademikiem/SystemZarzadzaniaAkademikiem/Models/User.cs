@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SystemZarzadzaniaAkademikiem.Models
 {
-    class User
+    public class User
     {
         public int Id;
         public string Name { set; get; }
