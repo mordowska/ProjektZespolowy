@@ -1,17 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SystemZarzadzaniaAkademikiem.Views.AdminLoginPage">
+             x:Class="SystemZarzadzaniaAkademikiem.Views.AdminLoginPage"
+             Title="Welcome to Admin Login Page. Please enter credentials below.">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Admin Login Page. If you are authorized please enter credentials below. If you entered this page by accident please contact one of the employees for help."
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="Login"></Label>
-            <Entry Placeholder="Login"></Entry>
-            <Label Text="Password"></Label>
-            <Entry Placeholder="Password"></Entry>
-            <Button Text="Log in"></Button>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.33*" />
+                    <ColumnDefinition Width="0.33*" />
+                    <ColumnDefinition Width="0.33*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Login"  Grid.Row="1" Grid.Column="1"></Label>
+                <Entry Placeholder="Login" Grid.Row="2" Grid.Column="1"></Entry>
+                <Label Text="Password" Grid.Row="3" Grid.Column="1"></Label>
+                <Entry Placeholder="Password" Grid.Row="4" Grid.Column="1"></Entry>
+                    <Button Text="Log in" Grid.Row="5" Grid.Column="1"></Button>
+
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -9,6 +9,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     class MainPageViewModel : BaseViewModel
     {
+        static int MaxCounter = 1;
         public Command ActivateAdminLogin { get; set; }
         public int Counter=0;
         public MainPageViewModel()
@@ -18,11 +19,11 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
         async void ExecuteActivateAdminLogin()
         {
-            if (Counter >= 7)
+            Counter++;
+            if (Counter >= MaxCounter)
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new AdminLoginPage());
             }
-            Counter++;
             Debug.WriteLine(Counter);
         }
 
