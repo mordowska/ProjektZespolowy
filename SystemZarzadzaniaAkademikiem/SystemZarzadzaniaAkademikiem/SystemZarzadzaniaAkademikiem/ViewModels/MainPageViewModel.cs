@@ -13,12 +13,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     {
         static int MaxCounter = 1;
         public Command ActivateAdminLogin { get; set; }
-        public ObservableCollection<User> Users { get; set; }
         public int Counter=0;
         public MainPageViewModel()
         {
-            Title = "System przydzielania miejsc w akademiku";
-            Users = new ObservableCollection<User>();
+            Title = "System przydzielania miejsc w akademiku"; 
             ActivateAdminLogin = new Command(ExecuteActivateAdminLogin);
         }
         async void ExecuteActivateAdminLogin()

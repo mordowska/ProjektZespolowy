@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SystemZarzadzaniaAkademikiem.Views.AdminLoginPage"
-             Title="Welcome to Admin Login Page. Please enter credentials below.">
+             Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
             <Grid>
@@ -20,10 +20,10 @@
                     <ColumnDefinition Width="0.33*" />
                 </Grid.ColumnDefinitions>
                 <Label Text="Login"  Grid.Row="1" Grid.Column="1"></Label>
-                <Entry Placeholder="Login" Grid.Row="2" Grid.Column="1" BindingContext="{}"></Entry>
+                <Entry Placeholder="Login" Grid.Row="2" Grid.Column="1" Text="{Binding Login}"></Entry>
                 <Label Text="Password" Grid.Row="3" Grid.Column="1"></Label>
-                <Entry Placeholder="Password" Grid.Row="4" Grid.Column="1" BindingContext=""></Entry>
-                    <Button Text="Log in" Grid.Row="5" Grid.Column="1" Command=""></Button>
+                <Entry Placeholder="Password" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"></Entry>
+                    <Button Text="Log in" Grid.Row="5" Grid.Column="1" Command="{Binding LoginAsAdmin}"></Button>
 
             </Grid>
         </StackLayout>

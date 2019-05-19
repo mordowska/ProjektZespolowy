@@ -4,7 +4,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SystemZarzadzaniaAkademikiem.Data;
 using System.IO;
-using SQLite.Net.Cipher.Security;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SystemZarzadzaniaAkademikiem
@@ -19,9 +18,7 @@ namespace SystemZarzadzaniaAkademikiem
                 if (database == null)
                 {
                     var dbFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Database.db3");
-                    var platform = new SQLite.Net.Platform.Generic.SQLitePlatformGeneric();
-                    var someSalt = CryptoService.GenerateRandomKey(16);
-                    database = new AppDatabase(platform,dbFilePath,someSalt);
+                    database = new AppDatabase( dbFilePath);
                 }
                 return database;
             }

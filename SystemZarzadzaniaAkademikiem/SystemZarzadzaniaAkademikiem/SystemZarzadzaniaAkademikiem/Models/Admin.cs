@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
-using SQLite.Net.Cipher.Interfaces;
-using SQLite.Net.Cipher.Model;
 
 namespace SystemZarzadzaniaAkademikiem.Models
 {
-    public class Admin:IModel
+    public class Admin
     {
-        [PrimaryKey]
-        public string Id { get; set; }
-        [NotNull,Unique,Secure]
+        [NotNull,Unique]
         public string Login { get; set; }
-        [NotNull,Unique,Secure]
+        [NotNull,Unique]
         public string Password { get; set; }
     }
 }

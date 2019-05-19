@@ -8,7 +8,7 @@ namespace SystemZarzadzaniaAkademikiem.Services
 {
     public interface IAdminRepo
     {
-        Admin GetAdmin();
-        int UpdateAdmin(Admin admin);
+        Task<Admin> GetAdmin();
+        Task<int> UpdateAdmin(Admin admin);
     }
 }
