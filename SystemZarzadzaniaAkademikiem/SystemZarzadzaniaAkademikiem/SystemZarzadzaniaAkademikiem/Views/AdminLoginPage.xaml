@@ -20,10 +20,10 @@
                     <ColumnDefinition Width="0.33*" />
                 </Grid.ColumnDefinitions>
                 <Label Text="Login"  Grid.Row="1" Grid.Column="1"></Label>
-                <Entry Placeholder="Login" Grid.Row="2" Grid.Column="1"></Entry>
+                <Entry Placeholder="Login" Grid.Row="2" Grid.Column="1" BindingContext="{}"></Entry>
                 <Label Text="Password" Grid.Row="3" Grid.Column="1"></Label>
-                <Entry Placeholder="Password" Grid.Row="4" Grid.Column="1"></Entry>
-                    <Button Text="Log in" Grid.Row="5" Grid.Column="1"></Button>
+                <Entry Placeholder="Password" Grid.Row="4" Grid.Column="1" BindingContext=""></Entry>
+                    <Button Text="Log in" Grid.Row="5" Grid.Column="1" Command=""></Button>
 
             </Grid>
         </StackLayout>
