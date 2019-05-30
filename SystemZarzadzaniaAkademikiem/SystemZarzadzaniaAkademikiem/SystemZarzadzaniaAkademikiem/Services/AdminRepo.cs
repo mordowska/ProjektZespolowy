@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using SystemZarzadzaniaAkademikiem.Data;
@@ -14,7 +15,7 @@ namespace SystemZarzadzaniaAkademikiem.Services
         public AdminRepo(AppDatabase database)
         {
             _database = database.Database;
-            if (_database.Table<Admin>().FirstOrDefaultAsync()==null)
+            if (_database.Table<Admin>().FirstOrDefaultAsync().Result==null)
             {
                 _database.InsertAsync(new Admin { Login="Admin",Password="S3cr3tP@ss"});
             }
