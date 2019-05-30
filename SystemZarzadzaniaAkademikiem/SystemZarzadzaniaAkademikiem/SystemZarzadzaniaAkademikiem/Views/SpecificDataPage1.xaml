@@ -13,7 +13,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Text="Wybierz preferowane piętro"
                    />
-                <Picker x:Name="Floor" Grid.Column="1">
+                <Picker x:Name="Floor" Grid.Column="1" SelectedItem="{Binding Floor}">
                     <Picker.Items>
                         <x:String>1</x:String>
                         <x:String>2</x:String>
@@ -24,7 +24,7 @@
                 </Picker>
                 <Label Grid.Column="0" Grid.Row="1" Text="Wolisz łóżko przy oknie czy przy drzwiach?"
                    />
-                <Picker x:Name="BedLocation" Grid.Column="1" Grid.Row="1">
+                <Picker x:Name="BedLocation" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding BedLocation}">
                     <Picker.Items>
                         <x:String>Przy oknie</x:String>
                         <x:String>Przy drzwiach</x:String>
@@ -33,7 +33,7 @@
                 </Picker>
                 <Label Grid.Column="0" Grid.Row="2" Text="Kiedy zazwyczaj chodzisz spać?"
                    />
-                <Picker x:Name="SleepTime" Grid.Column="1" Grid.Row="2">
+                <Picker x:Name="SleepTime" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding SleepTime}">
                     <Picker.Items>
                         <x:String>Przed 22.30</x:String>
                         <x:String>22.30-24</x:String>
@@ -43,7 +43,7 @@
                 </Picker>
                 <Label Grid.Column="0" Grid.Row="3" Text="Kiedy zazwyczaj wstajesz?"
                    />
-                <Picker x:Name="WakeUpTime" Grid.Column="1" Grid.Row="3">
+                <Picker x:Name="WakeUpTime" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding WakeUpTime}">
                     <Picker.Items>
                         <x:String>Przed 6.00</x:String>
                         <x:String>6.00-8.00</x:String>
@@ -55,7 +55,7 @@
                 </Picker>
                 <Label Grid.Column="0" Grid.Row="4" Text="Wolisz gdy w pokoju jest cieplej czy chłodniej?"
                    />
-                <Picker x:Name="HotOrNot" Grid.Column="1" Grid.Row="4">
+                <Picker x:Name="HotOrNot" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding HotOrNot}">
                     <Picker.Items>
                         <x:String>Cieplej</x:String>
                         <x:String>Chłodniej</x:String>
@@ -64,7 +64,7 @@
                 </Picker>
                 <Label Grid.Column="0" Grid.Row="5" Text="Gdy słuchasz muzyki, wolisz słuchać ją przy pomocy głośników czy słuchawek?"
                    />
-                <Picker x:Name="Music" Grid.Column="1" Grid.Row="5">
+                <Picker x:Name="Music" Grid.Column="1" Grid.Row="5" SelectedItem="{Binding Music}">
                     <Picker.Items>
                         <x:String>Słuchawki</x:String>
                         <x:String>Głośniki</x:String>
@@ -73,7 +73,7 @@
                 </Picker>
                 <Label Grid.Column="0" Grid.Row="6" Text="Czy sprzątasz systematycznie?"
                    />
-                <Picker x:Name="CleanUp" Grid.Column="1" Grid.Row="6">
+                <Picker x:Name="CleanUp" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding CleanUp}">
                     <Picker.Items>
                         <x:String>Tak</x:String>
                         <x:String>Nie</x:String>

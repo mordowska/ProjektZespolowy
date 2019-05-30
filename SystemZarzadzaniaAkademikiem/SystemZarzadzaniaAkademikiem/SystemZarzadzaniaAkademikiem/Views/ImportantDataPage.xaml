@@ -16,13 +16,13 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Text="Imię: "/>
-                    <Entry x:Name="Name" Placeholder="Imię" Grid.Column="1" Grid.Row="0"/>
+                    <Entry x:Name="Name" Placeholder="Imię" Grid.Column="1" Grid.Row="0" Text="{Binding Name}"/>
                     <Label Text="Nazwisko: " Grid.Column="0" Grid.Row="1"/>
-                    <Entry x:Name="Lastname" Placeholder="Nazwisko" Grid.Column="1" Grid.Row="1"/>
+                    <Entry x:Name="Lastname" Placeholder="Nazwisko" Grid.Column="1" Grid.Row="1" Text="{Binding Lastname}"/>
                     <Label Text="Indeks: " Grid.Column="0" Grid.Row="2"/>
-                    <Entry x:Name="Index" Placeholder="Indeks" Grid.Column="1" Grid.Row="2"/>
+                    <Entry x:Name="Index" Placeholder="Indeks" Grid.Column="1" Grid.Row="2" Text="{Binding Index}"/>
                     <Label Text="Płeć: " Grid.Column="0" Grid.Row="3" />
-                    <Picker Grid.Column="1" Grid.Row="3">
+                    <Picker Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Sex}">
                         <Picker.Items>
                             <x:String>Mężczyzna</x:String>
                             <x:String>Kobieta</x:String>
