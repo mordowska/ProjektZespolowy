@@ -12,10 +12,11 @@ namespace SystemZarzadzaniaAkademikiem.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CRUDMenu : ContentPage
 	{
-        CRUDMainPage RootPage { get => Application.Current.MainPage as CRUDMainPage; }
+        CRUDMainPage RootPage;
         List<HomeMenuItem> menuItems;
-        public CRUDMenu ()
+        public CRUDMenu (CRUDMainPage RootPage = null)
 		{
+            this.RootPage = RootPage;
             InitializeComponent();
 
             menuItems = new List<HomeMenuItem>

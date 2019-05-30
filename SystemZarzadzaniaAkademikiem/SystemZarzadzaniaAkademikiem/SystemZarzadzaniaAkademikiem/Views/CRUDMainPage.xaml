@@ -4,10 +4,6 @@
             xmlns:views="clr-namespace:SystemZarzadzaniaAkademikiem.Views"
             x:Class="SystemZarzadzaniaAkademikiem.Views.CRUDMainPage">
 
-    <MasterDetailPage.Master>
-        <views:CRUDMenu />
-    </MasterDetailPage.Master>
-
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
