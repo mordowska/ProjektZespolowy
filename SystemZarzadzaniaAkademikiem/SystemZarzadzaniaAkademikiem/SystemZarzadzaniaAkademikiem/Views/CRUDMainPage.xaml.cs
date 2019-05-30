@@ -38,6 +38,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.Logout:
+                        MenuPages.Add(id, new NavigationPage(new MainPage()));
+                        await Navigation.PopToRootAsync();
+                        break;
                 }
             }
 

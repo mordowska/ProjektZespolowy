@@ -8,7 +8,8 @@ namespace SystemZarzadzaniaAkademikiem.Models
     {
         ChangeAdmin,
         Browse,
-        About
+        About,
+        Logout
     }
     public class HomeMenuItem
     {

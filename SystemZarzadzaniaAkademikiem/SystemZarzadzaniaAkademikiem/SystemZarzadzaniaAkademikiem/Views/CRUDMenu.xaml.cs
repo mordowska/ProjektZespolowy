@@ -23,7 +23,8 @@ namespace SystemZarzadzaniaAkademikiem.Views
             {
                 new HomeMenuItem {Id = MenuItemType.ChangeAdmin, Title="Change Admin Credentials"},
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse Tabels" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
