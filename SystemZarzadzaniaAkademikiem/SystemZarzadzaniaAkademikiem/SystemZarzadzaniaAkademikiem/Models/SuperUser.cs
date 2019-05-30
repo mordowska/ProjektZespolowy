@@ -5,7 +5,7 @@ using SQLite;
 
 namespace SystemZarzadzaniaAkademikiem.Models
 {
-    public class Admin
+    public class SuperUser
     {
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }

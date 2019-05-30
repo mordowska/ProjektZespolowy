@@ -44,7 +44,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
         async void ExecuteChangeAdmin()
         {
-            await adminRepo.UpdateAdmin(new Models.Admin { id=1,Login=NewLogin,Password=NewPassword});
+            await adminRepo.UpdateAdmin(new Models.SuperUser { id=1,Login=NewLogin,Password=NewPassword});
         }
     }
 }

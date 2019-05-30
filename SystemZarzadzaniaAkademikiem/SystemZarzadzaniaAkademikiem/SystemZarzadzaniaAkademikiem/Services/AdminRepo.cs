@@ -15,16 +15,16 @@ namespace SystemZarzadzaniaAkademikiem.Services
         public AdminRepo(AppDatabase database)
         {
             _database = database.Database;
-            if (_database.Table<Admin>().FirstOrDefaultAsync().Result==null)
+            if (_database.Table<SuperUser>().FirstOrDefaultAsync().Result==null)
             {
-                _database.InsertAsync(new Admin { Login="Admin",Password="S3cr3tP@ss"});
+                _database.InsertAsync(new SuperUser { Login="Admin",Password="S3cr3tP@ss"});
             }
         }
-        public Task<Admin> GetAdmin()
+        public Task<SuperUser> GetAdmin()
         {
-            return _database.Table<Admin>().FirstOrDefaultAsync();
+            return _database.Table<SuperUser>().FirstOrDefaultAsync();
         }
-        public Task<int> UpdateAdmin(Admin admin)
+        public Task<int> UpdateAdmin(SuperUser admin)
         {
             return _database.UpdateAsync(admin);
         }

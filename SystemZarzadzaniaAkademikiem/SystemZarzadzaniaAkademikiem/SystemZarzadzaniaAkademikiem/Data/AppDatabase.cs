@@ -11,7 +11,7 @@ namespace SystemZarzadzaniaAkademikiem.Data
         public AppDatabase(string dbfile)
         {
             Database = new SQLiteAsyncConnection(dbfile);
-            Database.CreateTableAsync<Admin>().Wait();
+            Database.CreateTableAsync<SuperUser>().Wait();
             Database.CreateTableAsync<User>().Wait();
         }
     }
