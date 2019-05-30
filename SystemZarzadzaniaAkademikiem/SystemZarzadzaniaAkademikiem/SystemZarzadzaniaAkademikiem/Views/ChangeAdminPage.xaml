@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SystemZarzadzaniaAkademikiem.Views.ChangeAdminPage">
+             x:Class="SystemZarzadzaniaAkademikiem.Views.ChangeAdminPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.33*" />
+                    <ColumnDefinition Width="0.33*" />
+                    <ColumnDefinition Width="0.33*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Enter New Admin Credentials"  Grid.Row="1" Grid.Column="1"></Label>
+                <Label Text="New Login"  Grid.Row="2" Grid.Column="1"></Label>
+                <Entry Placeholder="Login" Grid.Row="3" Grid.Column="1" Text="{Binding NewLogin}"></Entry>
+                <Label Text="New Password" Grid.Row="4" Grid.Column="1"></Label>
+                <Entry Placeholder="Password" Grid.Row="5" Grid.Column="1" Text="{Binding NewPassword}" IsPassword="True"></Entry>
+                <Button Text="Change" Grid.Row="6" Grid.Column="1" Command="{Binding ChangeAdmin}"></Button>
+
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
