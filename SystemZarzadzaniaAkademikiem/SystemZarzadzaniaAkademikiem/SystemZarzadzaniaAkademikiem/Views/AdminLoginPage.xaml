@@ -22,7 +22,7 @@
                 <Label Text="Login"  Grid.Row="1" Grid.Column="1"></Label>
                 <Entry Placeholder="Login" Grid.Row="2" Grid.Column="1" Text="{Binding Login}"></Entry>
                 <Label Text="Password" Grid.Row="3" Grid.Column="1"></Label>
-                <Entry Placeholder="Password" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"></Entry>
+                <Entry Placeholder="Password" Grid.Row="4" Grid.Column="1" Text="{Binding Password}" IsPassword="True"></Entry>
                     <Button Text="Log in" Grid.Row="5" Grid.Column="1" Command="{Binding LoginAsAdmin}"></Button>
 
             </Grid>
