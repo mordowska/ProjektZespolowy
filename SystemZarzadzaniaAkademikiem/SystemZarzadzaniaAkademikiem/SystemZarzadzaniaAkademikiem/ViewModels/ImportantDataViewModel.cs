@@ -1,31 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Windows.Input;
-using SystemZarzadzaniaAkademikiem.Models;
+﻿using SystemZarzadzaniaAkademikiem.Models;
+using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
+
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    class ImportantDataViewModel : BaseViewModel
+    internal class ImportantDataViewModel : BaseViewModel
     {
-        private string _name = "";
-        private string _lastname = "";
         private string _index = "";
+        private string _indexError = "";
+        private string _lastname = "";
+        private string _lastnameError = "";
+        private string _name = "";
+        private string _nameError = "";
         private string _sex = "";
 
-        private string _nameError = "";
-        private string _lastnameError = "";
-        private string _indexError = "";
-        public ImportantDataViewModel(User user=null)
+        private readonly User user = null;
+        private UserRepo userRepo;
+
+        public ImportantDataViewModel()
         {
             _name = user?.Name;
             _lastname = user?.Lastname;
             _index = user?.Index;
             _sex = user?.Sex;
+            SaveImportantDataPreferences = new Command(ExecuteSaveImportantDataPreferences);
         }
+
+        public Command SaveImportantDataPreferences { get; set; }
+
+        private async void ExecuteSaveImportantDataPreferences()
+        {
+            userRepo.SaveUserAsync(user);
+        }
+
+
         #region
+
         public string Name
         {
             get => _name;
@@ -37,7 +48,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             }
         }
 
-        private bool ValidateName() => Validator.EmptyField(Name);
+        private bool ValidateName()
+        {
+            return Validator.EmptyField(Name);
+        }
 
         public string NameError
         {
@@ -60,7 +74,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             }
         }
 
-        private bool ValidateLastname() => Validator.EmptyField(Lastname);
+        private bool ValidateLastname()
+        {
+            return Validator.EmptyField(Lastname);
+        }
 
         public string LastnameError
         {
@@ -83,7 +100,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             }
         }
 
-        private bool ValidateIndex() => Validator.IndexVal(Index);
+        private bool ValidateIndex()
+        {
+            return Validator.IndexVal(Index);
+        }
 
         public string IndexError
         {

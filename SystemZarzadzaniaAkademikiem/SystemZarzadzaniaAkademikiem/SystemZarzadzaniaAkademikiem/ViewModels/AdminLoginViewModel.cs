@@ -1,42 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Views;
-using SystemZarzadzaniaAkademikiem.Services;
+using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    class AdminLoginViewModel : BaseViewModel
+    internal class AdminLoginViewModel : BaseViewModel
     {
+        private readonly AdminRepo adminRepo;
         private string _login;
         private string _password;
-        public string Login
-        {
-            get
-            {
-                return _login;
-            }
-            set
-            {
-                _login = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Password
-        {
-            get
-            {
-                return _password;
-            }
-            set
-            {
-                _password = value;
-                OnPropertyChanged();
-            }
-        }
-        public Command LoginAsAdmin { get; set; }
-        AdminRepo adminRepo;
 
         public AdminLoginViewModel()
         {
@@ -44,11 +16,33 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             LoginAsAdmin = new Command(ExecuteLoginAsAdmin);
             adminRepo = new AdminRepo(App.Database);
         }
-        async void ExecuteLoginAsAdmin()
+
+        public string Login
         {
-            if (_login == adminRepo.GetAdmin().Result.Login && _password == adminRepo.GetAdmin().Result.Password) {
-                await Application.Current.MainPage.Navigation.PushAsync(new CRUDMainPage());
+            get => _login;
+            set
+            {
+                _login = value;
+                OnPropertyChanged();
             }
+        }
+
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Command LoginAsAdmin { get; set; }
+
+        private async void ExecuteLoginAsAdmin()
+        {
+            if (_login == adminRepo.GetAdmin().Result.Login && _password == adminRepo.GetAdmin().Result.Password)
+                await Application.Current.MainPage.Navigation.PushAsync(new CRUDMainPage());
         }
     }
 }
