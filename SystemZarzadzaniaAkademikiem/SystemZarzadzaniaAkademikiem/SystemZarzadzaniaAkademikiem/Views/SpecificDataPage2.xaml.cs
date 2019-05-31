@@ -9,15 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace SystemZarzadzaniaAkademikiem.Views
 {
-    //tu!
-	public partial class SpecificDataPage2 : ContentPage
+    public partial class SpecificDataPage2 : ContentPage
 	{
-        private UserViewModel viewModel;
-        public SpecificDataPage2 ()
+        private SpecificDataPage2ViewModel viewModel;
+        public SpecificDataPage2 (SpecificDataPage2ViewModel specificDataPage2ViewModel)
 		{
 			InitializeComponent ();
-            viewModel = new UserViewModel();
-            BindingContext = viewModel;
+            BindingContext = viewModel = specificDataPage2ViewModel;
         }
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
