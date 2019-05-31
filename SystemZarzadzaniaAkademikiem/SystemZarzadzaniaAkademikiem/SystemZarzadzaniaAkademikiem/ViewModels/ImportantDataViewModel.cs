@@ -32,7 +32,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveImportantDataPreferences()
         {
-            var isValid = Validate();
+            isValid = Validate();
             if (isValid)
             {
                 var user = new User
