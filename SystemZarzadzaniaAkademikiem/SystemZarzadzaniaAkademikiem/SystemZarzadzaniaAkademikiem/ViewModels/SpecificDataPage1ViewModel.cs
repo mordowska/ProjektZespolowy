@@ -11,7 +11,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public string CleanUp;
         public string Floor;
         public string HotOrNot;
-        private readonly string index;
+        public readonly string index;
         public string Music;
         public string SleepTime;
         private readonly User user;
