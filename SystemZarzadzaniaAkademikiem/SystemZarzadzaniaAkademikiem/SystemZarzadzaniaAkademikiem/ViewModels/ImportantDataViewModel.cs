@@ -1,4 +1,5 @@
-﻿using SystemZarzadzaniaAkademikiem.Models;
+﻿using System.Diagnostics;
+using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
@@ -16,7 +17,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private string _sex = "";
 
         private readonly User user = null;
-        private UserRepo userRepo;
+        public UserRepo userRepo;
         public bool isValid = false;
         public ImportantDataViewModel()
         {
