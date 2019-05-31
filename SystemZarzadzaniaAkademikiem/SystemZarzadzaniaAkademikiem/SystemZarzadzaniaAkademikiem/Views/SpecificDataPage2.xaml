@@ -1,76 +1,73 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
-    x:Class="SystemZarzadzaniaAkademikiem.Views.SpecificDataPage2">
+             x:Class="SystemZarzadzaniaAkademikiem.Views.SpecificDataPage2">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Proszę wypełnić specyficzne dane, które pozwolą nam wspomóc cie w wybraniu doskonałego pokoju do twych potrzeb." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Label
+                Text="Proszę wypełnić specyficzne dane, które pozwolą nam wspomóc cie w wybraniu doskonałego pokoju do twych potrzeb."
+                HorizontalOptions="Center" HorizontalTextAlignment="Center" />
             <Grid Padding="20">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Text="Preferujesz osoby ciche czy rozmowne?"
-                   />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="Preferujesz osoby ciche czy rozmowne?" />
                 <Picker x:Name="Talkative" Grid.Column="1" Grid.Row="0" SelectedItem="{Binding Talkative}">
-                        <Picker.Items>
-                            <x:String>Ciche</x:String>
-                            <x:String>Rozmowne</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                    <Label Grid.Column="0" Grid.Row="1" Text="Chodzisz na kierunek ścisły czy humanistyczny?"
-                   />
+                    <Picker.Items>
+                        <x:String>Ciche</x:String>
+                        <x:String>Rozmowne</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Label Grid.Column="0" Grid.Row="1" Text="Chodzisz na kierunek ścisły czy humanistyczny?" />
                 <Picker x:Name="StudyField" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding StudyField}">
-                        <Picker.Items>
-                            <x:String>Ścisły</x:String>
-                            <x:String>Humanistyczny</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                    <Label Grid.Column="0" Grid.Row="2" Text="Czy jesteś aktywny fizycznie?"
-                   />
+                    <Picker.Items>
+                        <x:String>Ścisły</x:String>
+                        <x:String>Humanistyczny</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Label Grid.Column="0" Grid.Row="2" Text="Czy jesteś aktywny fizycznie?" />
                 <Picker x:Name="Sporting" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding Sporting}">
-                        <Picker.Items>
-                            <x:String>Tak</x:String>
-                            <x:String>Nie</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                    <Label Grid.Column="0" Grid.Row="3" Text="Jak często wracasz do rodziny?"
-                   />
+                    <Picker.Items>
+                        <x:String>Tak</x:String>
+                        <x:String>Nie</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Label Grid.Column="0" Grid.Row="3" Text="Jak często wracasz do rodziny?" />
                 <Picker x:Name="HomeBack" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding HomeBack}">
-                        <Picker.Items>
-                            <x:String>Co weekend</x:String>
-                            <x:String>2 razy w miesiącu</x:String>
-                            <x:String>Tylko na święta</x:String>
-                            <x:String>Nigdy nie wracam/bardzo rzadko</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                    <Label Grid.Column="0" Grid.Row="4" Text="Czy jesteś osobą palącą?"
-                   />
+                    <Picker.Items>
+                        <x:String>Co weekend</x:String>
+                        <x:String>2 razy w miesiącu</x:String>
+                        <x:String>Tylko na święta</x:String>
+                        <x:String>Nigdy nie wracam/bardzo rzadko</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Label Grid.Column="0" Grid.Row="4" Text="Czy jesteś osobą palącą?" />
                 <Picker x:Name="Smoking" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Smoking}">
-                        <Picker.Items>
-                            <x:String>Tak</x:String>
-                            <x:String>Nie</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                    <Label Grid.Column="0" Grid.Row="5" Text="Jak często chodzisz na imprezy?"
-                   />
+                    <Picker.Items>
+                        <x:String>Tak</x:String>
+                        <x:String>Nie</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Label Grid.Column="0" Grid.Row="5" Text="Jak często chodzisz na imprezy?" />
                 <Picker x:Name="Party" Grid.Column="1" Grid.Row="5" SelectedItem="{Binding Party}">
-                        <Picker.Items>
-                            <x:String>Nie chodze/bardzo rzadko</x:String>
-                            <x:String>1 raz w tygodniu</x:String>
-                            <x:String>3-4 razy w tygodniu</x:String>
-                            <x:String>ponad 5 razy w tygodniu</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                </Grid>
-            <Button Text="Dalej" Clicked="Button_ClickedAsync"/>
+                    <Picker.Items>
+                        <x:String>Nie chodze/bardzo rzadko</x:String>
+                        <x:String>1 raz w tygodniu</x:String>
+                        <x:String>3-4 razy w tygodniu</x:String>
+                        <x:String>ponad 5 razy w tygodniu</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+            </Grid>
+            <Button Text="Dalej" Command="{Binding SaveSpecificData2}" Clicked="Button_ClickedAsync" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
