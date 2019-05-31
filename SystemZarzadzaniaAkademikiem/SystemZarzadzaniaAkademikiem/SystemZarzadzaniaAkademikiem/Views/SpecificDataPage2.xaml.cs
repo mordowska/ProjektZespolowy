@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace SystemZarzadzaniaAkademikiem.Views
 {
+    //tu!
 	public partial class SpecificDataPage2 : ContentPage
 	{
         private UserViewModel viewModel;

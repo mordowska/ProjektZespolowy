@@ -13,9 +13,12 @@ namespace SystemZarzadzaniaAkademikiem.Views
 {
 	public partial class SpecificDataPage1 : ContentPage
 	{
-		public SpecificDataPage1 (SpecificDataPage1ViewModel specificDataPage1ViewModel)
+        private SpecificDataPage1ViewModel viewModel;
+
+        public SpecificDataPage1 (SpecificDataPage1ViewModel specificDataPage1ViewModel)
 		{
-			InitializeComponent ();
+            BindingContext = viewModel = specificDataPage1ViewModel;
+            InitializeComponent ();
 		}
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
