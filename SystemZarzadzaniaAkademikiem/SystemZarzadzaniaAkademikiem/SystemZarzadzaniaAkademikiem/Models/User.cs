@@ -14,7 +14,6 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public string Lastname { set; get; }
         [NotNull,Unique]
         public string Index { set; get; }
-        [NotNull]
         public string Sex { set; get; }
         public string Floor { set; get; }
         public string BedLocation { set; get; }

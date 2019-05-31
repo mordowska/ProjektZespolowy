@@ -25,13 +25,24 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             _index = user?.Index;
             _sex = user?.Sex;
             SaveImportantDataPreferences = new Command(ExecuteSaveImportantDataPreferences);
+            userRepo = new UserRepo(App.Database);
         }
 
         public Command SaveImportantDataPreferences { get; set; }
 
         private async void ExecuteSaveImportantDataPreferences()
         {
-            userRepo.SaveUserAsync(user);
+            bool isValid = Validate();
+            if (isValid)
+            {
+                User newUser = new User
+                {
+                    Name = Name,
+                    Lastname = Lastname,
+                    Index = Index
+                };
+                await userRepo.SaveUserAsync(newUser);
+            }
         }
 
 
