@@ -25,7 +25,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
         {
             if (viewModel.isValid)
             {
-                await Navigation.PushAsync(new SpecificDataPage1(viewModel.Index));
+                await Navigation.PushAsync(new SpecificDataPage1(new SpecificDataPage1ViewModel(viewModel.Index)));
             }
         }
     }

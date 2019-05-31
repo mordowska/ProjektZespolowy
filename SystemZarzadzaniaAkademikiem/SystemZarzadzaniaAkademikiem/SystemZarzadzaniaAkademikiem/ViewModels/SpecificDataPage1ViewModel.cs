@@ -4,9 +4,11 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    internal class SpecificDataPage1ViewModel : BaseViewModel
+    public class SpecificDataPage1ViewModel : BaseViewModel
     {
         private readonly UserRepo userRepo;
+        private User user;
+        private string index;
         public string BedLocation;
         public string CleanUp;
         public string Floor;
@@ -15,15 +17,16 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public string SleepTime;
         public string WakeUpTime;
 
-        public SpecificDataPage1ViewModel(User user = null)
+        public SpecificDataPage1ViewModel(string index)
         {
+            user = new User();
             Floor = user?.Floor;
             BedLocation = user?.BedLocation;
             CleanUp = user?.CleanUp;
             HotOrNot = user?.HotOrNot;
             Music = user?.Music;
             SleepTime = user?.SleepTime;
-
+            this.index = index;
             SaveSpecificData1 = new Command(ExecuteSaveSpecificData1);
             userRepo = new UserRepo(App.Database);
         }
@@ -32,16 +35,14 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveSpecificData1()
         {
-            var user = userRepo.GetUserAsync()
-            {
-                user.Floor = Floor,
-                BedLocation = BedLocation,
-                SleepTime = SleepTime,
-                WakeUpTime = WakeUpTime,
-                HotOrNot = HotOrNot,
-                Music = Music,
-                CleanUp = CleanUp
-            };
+            var user = userRepo.GetUserAsync(index).Result;
+            user.Floor = Floor;
+            user.BedLocation = BedLocation;
+            user.SleepTime = SleepTime;
+            user.WakeUpTime = WakeUpTime;
+            user.HotOrNot = HotOrNot;
+            user.Music = Music;
+            user.CleanUp = CleanUp;
             await userRepo.SaveUserAsync(user);
         }
     }

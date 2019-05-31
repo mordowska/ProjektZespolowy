@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemZarzadzaniaAkademikiem.Services;
+using SystemZarzadzaniaAkademikiem.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 {
 	public partial class SpecificDataPage1 : ContentPage
 	{
-		public SpecificDataPage1 (string index)
+		public SpecificDataPage1 (SpecificDataPage1ViewModel specificDataPage1ViewModel)
 		{
             UserRepo userRepo = new UserRepo(App.Database);
 			InitializeComponent ();
