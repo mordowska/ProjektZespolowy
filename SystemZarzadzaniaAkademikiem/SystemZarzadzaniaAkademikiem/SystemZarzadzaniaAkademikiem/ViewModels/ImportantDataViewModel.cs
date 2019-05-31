@@ -1,4 +1,5 @@
-﻿using SystemZarzadzaniaAkademikiem.Models;
+﻿using System.Diagnostics;
+using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
@@ -14,9 +15,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private string _name = "";
         private string _nameError = "";
 
-        public UserRepo userRepo;
+        private readonly User user = null;
+        private UserRepo userRepo;
 
-        public ImportantDataViewModel(User user = null)
+        public ImportantDataViewModel()
         {
             _name = user?.Name;
             _lastname = user?.Lastname;
@@ -30,7 +32,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveImportantDataPreferences()
         {
-            var isValid = Validate();
+            bool isValid = Validate();
             if (isValid)
             {
                 var user = new User
