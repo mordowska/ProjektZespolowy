@@ -6,15 +6,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class SpecificDataPage2ViewModel : BaseViewModel
     {
-        private readonly UserRepo userRepo;
-        public string HomeBack;
         private readonly string index;
-        public string Party;
-        public string Smoking;
-        public string Sporting;
-        public string StudyField;
-        public string Talkative;
         private readonly User user;
+        private readonly UserRepo userRepo;
 
         public SpecificDataPage2ViewModel(string index)
         {
@@ -29,6 +23,13 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             SaveSpecificData2 = new Command(ExecuteSaveSpecificData2);
             userRepo = new UserRepo(App.Database);
         }
+
+        public string HomeBack { get; set; } = "";
+        public string Party { get; set; } = "";
+        public string Smoking { get; set; } = "";
+        public string Sporting { get; set; } = "";
+        public string StudyField { get; set; } = "";
+        public string Talkative { get; set; } = "";
 
         public Command SaveSpecificData2 { get; set; }
 

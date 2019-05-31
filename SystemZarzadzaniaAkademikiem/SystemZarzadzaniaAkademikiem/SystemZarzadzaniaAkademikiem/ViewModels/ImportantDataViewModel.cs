@@ -48,7 +48,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         #region
 
-        public string Sex { get; } = "";
+        public string Sex { get; set; } = "";
 
         public string Name
         {

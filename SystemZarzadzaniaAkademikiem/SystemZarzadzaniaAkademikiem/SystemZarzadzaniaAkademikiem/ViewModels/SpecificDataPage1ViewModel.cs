@@ -6,16 +6,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class SpecificDataPage1ViewModel : BaseViewModel
     {
-        private readonly UserRepo userRepo;
-        public string BedLocation;
-        public string CleanUp;
-        public string Floor;
-        public string HotOrNot;
         public readonly string index;
-        public string Music;
-        public string SleepTime;
         private readonly User user;
-        public string WakeUpTime;
+        private readonly UserRepo userRepo;
 
         public SpecificDataPage1ViewModel(string index)
         {
@@ -30,6 +23,14 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             SaveSpecificData1 = new Command(ExecuteSaveSpecificData1);
             userRepo = new UserRepo(App.Database);
         }
+
+        public string BedLocation { get; set; } = "";
+        public string CleanUp { get; set; } = "";
+        public string Floor { get; set; } = "";
+        public string HotOrNot { get; set; } = "";
+        public string Music { get; set; } = "";
+        public string SleepTime { get; set; } = "";
+        public string WakeUpTime { get; set; } = "";
 
         public Command SaveSpecificData1 { get; set; }
 
