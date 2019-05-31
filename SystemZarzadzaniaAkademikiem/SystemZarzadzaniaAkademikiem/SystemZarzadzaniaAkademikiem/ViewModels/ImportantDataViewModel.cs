@@ -15,9 +15,12 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private string _name = "";
         private string _nameError = "";
 
-        private readonly User user = null;
-        private UserRepo userRepo;
+        public UserRepo userRepo;
 
+        public ImportantDataViewModel(User user = null)
+        private readonly User user = null;
+        public UserRepo userRepo;
+        public bool isValid = false;
         public ImportantDataViewModel()
         {
             _name = user?.Name;
