@@ -17,9 +17,9 @@ namespace SystemZarzadzaniaAkademikiem.Services
         {
             return _database.Table<User>().ToListAsync();
         }
-        public Task<User> GetUserAsync(int id)
+        public Task<User> GetUserAsync(string index)
         {
-            return _database.Table<User>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return _database.Table<User>().Where(i => i.Index == index).FirstOrDefaultAsync();
         }
         public Task<int> SaveUserAsync(User user)
         {
