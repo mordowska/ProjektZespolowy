@@ -17,7 +17,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private readonly User user = null;
         private UserRepo userRepo;
-
+        public bool isValid = false;
         public ImportantDataViewModel()
         {
             _name = user?.Name;
@@ -32,7 +32,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveImportantDataPreferences()
         {
-            bool isValid = Validate();
+            isValid = Validate();
             if (isValid)
             {
                 User newUser = new User

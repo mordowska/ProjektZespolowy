@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
 
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SpecificDataPage1(1));
+            if (viewModel.isValid)
+            {
+                await Navigation.PushAsync(new SpecificDataPage1(1));
+            }
         }
     }
 }
