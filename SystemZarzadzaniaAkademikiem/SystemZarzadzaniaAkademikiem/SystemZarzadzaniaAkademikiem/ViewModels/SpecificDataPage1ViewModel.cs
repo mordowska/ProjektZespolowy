@@ -32,9 +32,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveSpecificData1()
         {
-            var user = new User
+            var user = userRepo.GetUserAsync()
             {
-                Floor = Floor,
+                user.Floor = Floor,
                 BedLocation = BedLocation,
                 SleepTime = SleepTime,
                 WakeUpTime = WakeUpTime,
