@@ -25,7 +25,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
             var table = args.SelectedItem as Table;
             if (table == null)
                 return;
-            await Navigation.PushAsync(new TableDetailPage());
+            await Navigation.PushAsync(new TableDetailPage(new TableDetailViewModel(table.name)));
 
             // Manually deselect item.
             TablesListView.SelectedItem = null;
