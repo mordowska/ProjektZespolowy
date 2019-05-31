@@ -81,7 +81,7 @@
                     <Picker.SelectedIndex>0</Picker.SelectedIndex>
                 </Picker>
             </Grid>
-            <Button Text="Dalej" Clicked="Button_ClickedAsync"/>
+            <Button Text="Dalej" Command="{Binding SaveSpecificData1}" Clicked="Button_ClickedAsync"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

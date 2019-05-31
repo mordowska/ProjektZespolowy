@@ -13,17 +13,15 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private string _lastnameError = "";
         private string _name = "";
         private string _nameError = "";
-        private string _sex = "";
 
-        private readonly User user = null;
-        private UserRepo userRepo;
+        public UserRepo userRepo;
 
-        public ImportantDataViewModel()
+        public ImportantDataViewModel(User user = null)
         {
             _name = user?.Name;
             _lastname = user?.Lastname;
             _index = user?.Index;
-            _sex = user?.Sex;
+            Sex = user?.Sex;
             SaveImportantDataPreferences = new Command(ExecuteSaveImportantDataPreferences);
             userRepo = new UserRepo(App.Database);
         }
@@ -32,21 +30,23 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveImportantDataPreferences()
         {
-            bool isValid = Validate();
+            var isValid = Validate();
             if (isValid)
             {
-                User newUser = new User
+                var user = new User
                 {
                     Name = Name,
                     Lastname = Lastname,
-                    Index = Index
+                    Index = Index,
+                    Sex = Sex
                 };
-                await userRepo.SaveUserAsync(newUser);
+                await userRepo.SaveUserAsync(user);
             }
         }
 
-
         #region
+
+        public string Sex { get; } = "";
 
         public string Name
         {
