@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    internal class SpecificDataPage2ViewModel : BaseViewModel
+    public class SpecificDataPage2ViewModel : BaseViewModel
     {
         private readonly UserRepo userRepo;
         public string HomeBack;
