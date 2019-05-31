@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SystemZarzadzaniaAkademikiem.Models;
+﻿using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using Xamarin.Forms;
 
@@ -10,22 +7,25 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     internal class SpecificDataPage2ViewModel : BaseViewModel
     {
         private readonly UserRepo userRepo;
-        public string Talkative;
-        public string StudyField;
-        public string Sporting;
         public string HomeBack;
-        public string Smoking;
+        private readonly string index;
         public string Party;
+        public string Smoking;
+        public string Sporting;
+        public string StudyField;
+        public string Talkative;
+        private readonly User user;
 
-        public SpecificDataPage2ViewModel(User user = null)
+        public SpecificDataPage2ViewModel(string index)
         {
+            user = new User();
             Talkative = user?.Talkative;
             StudyField = user?.StudyField;
             Sporting = user?.Sporting;
             HomeBack = user?.HomeBack;
             Smoking = user?.Smoking;
             Party = user?.Party;
-
+            this.index = index;
             SaveSpecificData2 = new Command(ExecuteSaveSpecificData2);
             userRepo = new UserRepo(App.Database);
         }
@@ -34,19 +34,14 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveSpecificData2()
         {
-            var user = new User
-            {
-                Talkative = Talkative,
-                StudyField = StudyField,
-                Sporting = Sporting,
-                HomeBack = HomeBack,
-                Smoking = Smoking,
-                Party = Party
-            };
+            var user = userRepo.GetUserAsync(index).Result;
+            user.Talkative = Talkative;
+            user.StudyField = StudyField;
+            user.Sporting = Sporting;
+            user.HomeBack = HomeBack;
+            user.Smoking = Smoking;
+            user.Party = Party;
             await userRepo.SaveUserAsync(user);
         }
     }
 }
-
-    
-

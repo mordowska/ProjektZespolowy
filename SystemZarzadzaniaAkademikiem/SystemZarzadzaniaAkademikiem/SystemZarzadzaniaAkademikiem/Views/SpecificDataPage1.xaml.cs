@@ -15,9 +15,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 	{
 		public SpecificDataPage1 (SpecificDataPage1ViewModel specificDataPage1ViewModel)
 		{
-            UserRepo userRepo = new UserRepo(App.Database);
 			InitializeComponent ();
-            Debug.WriteLine(userRepo.GetUserAsync(index).Result.Name);
 		}
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {

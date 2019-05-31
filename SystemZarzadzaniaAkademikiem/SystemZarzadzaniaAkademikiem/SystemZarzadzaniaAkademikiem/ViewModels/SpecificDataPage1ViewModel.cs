@@ -7,14 +7,14 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     public class SpecificDataPage1ViewModel : BaseViewModel
     {
         private readonly UserRepo userRepo;
-        private User user;
-        private string index;
         public string BedLocation;
         public string CleanUp;
         public string Floor;
         public string HotOrNot;
+        private readonly string index;
         public string Music;
         public string SleepTime;
+        private readonly User user;
         public string WakeUpTime;
 
         public SpecificDataPage1ViewModel(string index)
