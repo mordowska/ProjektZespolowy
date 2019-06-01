@@ -9,17 +9,21 @@ using Xamarin.Forms.Xaml;
 
 namespace SystemZarzadzaniaAkademikiem.Views
 {
-    public partial class SpecificDataPage2 : ContentPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class Match : ContentView
 	{
-        private SpecificDataPage2ViewModel viewModel;
-        public SpecificDataPage2 (SpecificDataPage2ViewModel specificDataPage2ViewModel)
+        private MatchViewModel viewModel;
+
+        public Match (MatchViewModel matchViewModel)
 		{
 			InitializeComponent ();
-            BindingContext = viewModel = specificDataPage2ViewModel;
+            BindingContext = viewModel = matchViewModel;
+
         }
+
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Match(new MatchViewModel(viewModel.index)));
+            await Navigation.PopToRootAsync();
         }
     }
 }

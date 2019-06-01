@@ -6,7 +6,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class SpecificDataPage2ViewModel : BaseViewModel
     {
-        private readonly string index;
+        public readonly string index;
         private readonly User user;
         private readonly UserRepo userRepo;
 
