@@ -56,8 +56,9 @@ namespace SystemZarzadzaniaAkademikiem.Views
                         j = column;
                     }
                 }
-                var buttonEdit = new Button { Text="Edit" };
-                var buttonDelete = new Button { Text="Delete" };
+                var buttonEdit = new Button { Text="Edit", CommandParameter=objects[row][0]};
+                var buttonDelete = new Button { Text="Delete", CommandParameter = objects[row][0] };
+                buttonDelete.Clicked += Remove_Record;
                 mainGrid.Children.Add(buttonEdit, j+1, row + 1);
                 mainGrid.Children.Add(buttonDelete, j + 2, row + 1);
                 //j++;
@@ -78,6 +79,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
         {
             await Navigation.PushAsync(new AddRecordPage(viewModel?.name));
         }
+        
         private List<object[]> RunSql(string sqlString, bool includeColumnNamesAsFirstRow)
         {
             var lstRes = new List<object[]>();
@@ -138,6 +140,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
                 }
             }
         }
-
+        private void Remove_Record(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            viewModel?.DeleteRecordCommand.Execute(button.CommandParameter);
+        }
     }
 }
