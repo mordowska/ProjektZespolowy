@@ -6,6 +6,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class MatchViewModel : BaseViewModel
     {
+        private const int maxPoints = 12;
         public readonly string index;
         private readonly User user;
         private readonly UserRepo userRepo;
@@ -33,9 +34,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         public void SavePoints()
         {
+            points = 0;
             foreach (var usr in Users)
-                if (usr.Index != index && usr.Sex == user.Sex)
-                    CountPoints(usr);
+                if (usr.Index != index && usr.Sex == user.Sex) //tu jeszcze do warunku czy pokoj w ktorym jest usr ma juz 2 miejsca zajete jak tak to nei wchodz
+                    CountPoints(usr);                           //oo moze flaga do usr czy ma juz roommate'a
         }
 
         public void CountPoints(User user)
@@ -60,6 +62,24 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 this.points = points;
                 bestCandidate = user.Index;
             }
+        }
+
+        public void DecideWhatToDo()
+        {
+            if (this.points >= 9)
+            {
+                User user = userRepo.GetUserAsync(bestCandidate).Result;
+                //if room ma jeszcze wolne miejsce
+                this.user.Room = user.Room;
+                //room juz nei ma miejsc
+
+                //dodac do roomu flage czy wolny/zajety/ilosc miejsc co zostanie i jakos to ogarniac
+            }
+
+            //else
+            //sprawdz czy jest jeszcze wolny pokoj
+            //jesli tak to do wolnego
+            //jesli nie to do besta
         }
     }
 }
