@@ -30,7 +30,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
                 switch (id)
                 {
                     case (int)MenuItemType.ChangeAdmin:
-                        MenuPages.Add(id, new NavigationPage(new ChangeAdminPage()));
+                        MenuPages.Add(id, new NavigationPage(new ChangeAdminPage(this)));
                         break;
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new TablesPage()));

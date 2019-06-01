@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,18 @@ namespace SystemZarzadzaniaAkademikiem.Views
 	public partial class ChangeAdminPage : ContentPage
 	{
         AdminChangeViewModel viewModel;
-        public ChangeAdminPage ()
+        CRUDMainPage mainPage;
+        public ChangeAdminPage (CRUDMainPage mainPage =null)
 		{
+            this.mainPage = mainPage;
 			InitializeComponent ();
             BindingContext = viewModel = new AdminChangeViewModel();
         }
 
         async private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TablesPage());
+            Debug.WriteLine("Test3");
+            await mainPage.NavigateFromMenu(1);
         }
     }
 }

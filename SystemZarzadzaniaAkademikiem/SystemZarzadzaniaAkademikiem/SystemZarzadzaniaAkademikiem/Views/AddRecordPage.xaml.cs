@@ -13,8 +13,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
 	public partial class AddRecordPage : ContentPage
 	{
         AddRecordViewModel viewModel;
+        string tableName;
 		public AddRecordPage (string tableName)
 		{
+            this.tableName = tableName;
 			InitializeComponent ();
             BindingContext = viewModel = new AddRecordViewModel(tableName);
 		}
@@ -26,7 +28,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 
         async private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync();
         }
     }
 }

@@ -21,64 +21,63 @@ namespace SystemZarzadzaniaAkademikiem.Views
 
             BindingContext = viewModel = tableDetailViewModel;
         }
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-
-        }
         protected override void OnAppearing()
         {
-            List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(viewModel.name);
-            StackLayout main = new StackLayout { Orientation=StackOrientation.Vertical};
-            Grid mainGrid = new Grid { MinimumHeightRequest=80};
-            StackLayout s = new StackLayout();
-            s.Orientation = StackOrientation.Horizontal;
-            int k = 0;
-            foreach (var a in list)
+            if (Content == null)
             {
-                var label = new Label { Text=a.Name};
-                mainGrid.Children.Add(label,k,0);
-                k++;
-            }
-            //main.Children.Add(s,0,0);
-            int j=0;
-            var objects = RunSql("SELECT * FROM "+viewModel.name,false);
-            for (int row = 0; row < objects.Count; row++)
-            {
-                var tempStack = new StackLayout { Orientation = StackOrientation.Horizontal };
-                for (int column = 0; column < objects[row].Length; column++)
+                List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(viewModel.name);
+                StackLayout main = new StackLayout { Orientation = StackOrientation.Vertical };
+                Grid mainGrid = new Grid { MinimumHeightRequest = 80 };
+                StackLayout s = new StackLayout();
+                s.Orientation = StackOrientation.Horizontal;
+                int k = 0;
+                foreach (var a in list)
                 {
-                    
-                    if (objects[row][column] != null) {
-                        var label = new Label { Text = objects[row][column].ToString() };
-                        mainGrid.Children.Add(label,column,row+1);
-                        j = column;
-                    }
-                    if(objects[row][column] == null)
-                    {
-                        var label = new Label { Text = "NULL" };
-                        mainGrid.Children.Add(label, column, row + 1);
-                        j = column;
-                    }
+                    var label = new Label { Text = a.Name };
+                    mainGrid.Children.Add(label, k, 0);
+                    k++;
                 }
-                var buttonEdit = new Button { Text="Edit", CommandParameter=objects[row][0]};
-                var buttonDelete = new Button { Text="Delete", CommandParameter = objects[row][0] };
-                buttonDelete.Clicked += Remove_Record;
-                mainGrid.Children.Add(buttonEdit, j+1, row + 1);
-                mainGrid.Children.Add(buttonDelete, j + 2, row + 1);
-                //j++;
+                //main.Children.Add(s,0,0);
+                int j = 0;
+                var objects = RunSql("SELECT * FROM " + viewModel.name, false);
+                for (int row = 0; row < objects.Count; row++)
+                {
+                    var tempStack = new StackLayout { Orientation = StackOrientation.Horizontal };
+                    for (int column = 0; column < objects[row].Length; column++)
+                    {
+
+                        if (objects[row][column] != null)
+                        {
+                            var label = new Label { Text = objects[row][column].ToString() };
+                            mainGrid.Children.Add(label, column, row + 1);
+                            j = column;
+                        }
+                        if (objects[row][column] == null)
+                        {
+                            var label = new Label { Text = "NULL" };
+                            mainGrid.Children.Add(label, column, row + 1);
+                            j = column;
+                        }
+                    }
+                    var buttonEdit = new Button { Text = "Edit", CommandParameter = objects[row][0] };
+                    var buttonDelete = new Button { Text = "Delete", CommandParameter = objects[row][0] };
+                    buttonDelete.Clicked += Remove_Record;
+                    mainGrid.Children.Add(buttonEdit, j + 1, row + 1);
+                    mainGrid.Children.Add(buttonDelete, j + 2, row + 1);
+                    //j++;
+                }
+                main.Children.Add(mainGrid);
+                var addButton = new Button { Text = "Add", HorizontalOptions = LayoutOptions.Center, WidthRequest = 300 };
+                addButton.Clicked += Add_Record;
+                main.Children.Add(addButton);
+                ScrollView sv = new ScrollView
+                {
+                    HorizontalOptions = LayoutOptions.Fill,
+                    Orientation = ScrollOrientation.Both,
+                    Content = main
+                };
+                Content = sv;
             }
-            main.Children.Add(mainGrid);
-            var addButton = new Button { Text = "Add", HorizontalOptions = LayoutOptions.Center, WidthRequest = 300 };
-            addButton.Clicked += Add_Record;
-            main.Children.Add(addButton);
-            ScrollView sv = new ScrollView
-            {
-                HorizontalOptions = LayoutOptions.Fill,
-                Orientation = ScrollOrientation.Both,
-                Content = main
-            };
-            Content = sv;
             
         }
         async private void Add_Record(object sender, EventArgs e)
@@ -150,6 +149,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
         {
             var button = sender as Button;
             viewModel?.DeleteRecordCommand.Execute(button.CommandParameter);
+            Content = null;
             OnAppearing();
         }
     }
