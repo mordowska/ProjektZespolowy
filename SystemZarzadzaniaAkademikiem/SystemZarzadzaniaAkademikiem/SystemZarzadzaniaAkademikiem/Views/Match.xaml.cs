@@ -9,9 +9,8 @@ using Xamarin.Forms.Xaml;
 
 namespace SystemZarzadzaniaAkademikiem.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Match : ContentView
-	{
+	public partial class Match : ContentPage
+    {
         private MatchViewModel viewModel;
 
         public Match (MatchViewModel matchViewModel)
