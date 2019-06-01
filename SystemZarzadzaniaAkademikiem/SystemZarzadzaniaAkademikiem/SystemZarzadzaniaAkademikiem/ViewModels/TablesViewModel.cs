@@ -33,7 +33,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 var tables = GetAllTablesAsync().Result;
                 foreach (var table in tables)
                 {
-                    Tables.Add(table);
+                    if (table.name != "sqlite_sequence")
+                    {
+                        Tables.Add(table);
+                    }
                 }
             }
             catch (Exception ex)
