@@ -24,7 +24,6 @@ namespace SystemZarzadzaniaAkademikiem.Views
 
         async private void Button_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine("Test3");
             await mainPage.NavigateFromMenu(1);
         }
     }

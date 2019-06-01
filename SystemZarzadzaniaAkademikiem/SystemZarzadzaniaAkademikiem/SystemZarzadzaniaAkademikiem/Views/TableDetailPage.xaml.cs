@@ -62,6 +62,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
                     var buttonEdit = new Button { Text = "Edit", CommandParameter = objects[row][0] };
                     var buttonDelete = new Button { Text = "Delete", CommandParameter = objects[row][0] };
                     buttonDelete.Clicked += Remove_Record;
+                    buttonEdit.Clicked += Edit_Record;
                     mainGrid.Children.Add(buttonEdit, j + 1, row + 1);
                     mainGrid.Children.Add(buttonDelete, j + 2, row + 1);
                     //j++;
@@ -145,12 +146,17 @@ namespace SystemZarzadzaniaAkademikiem.Views
                 }
             }
         }
-        async private void Remove_Record(object sender, EventArgs e)
+        private void Remove_Record(object sender, EventArgs e)
         {
             var button = sender as Button;
             viewModel?.DeleteRecordCommand.Execute(button.CommandParameter);
             Content = null;
             OnAppearing();
+        }
+        async private void Edit_Record(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            await Navigation.PushAsync(new EditRecordPage(viewModel?.name,button.CommandParameter));
         }
     }
 }
