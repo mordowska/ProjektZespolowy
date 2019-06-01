@@ -24,7 +24,13 @@ namespace SystemZarzadzaniaAkademikiem.Views
         }
         protected override void OnAppearing()
         {
-
+            //Grid contentGrid = new Grid();
+            //isLoading = true;
+            //Grid loadingGrid = new Grid();
+            //loadingGrid.IsVisible = isLoading;
+            //loadingGrid.Children.Add(new ActivityIndicator { IsRunning = isLoading });
+            //contentGrid.Children.Add(loadingGrid);
+            //Content = contentGrid;
             if (Content == null)
             {
                 List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(viewModel.name);
@@ -81,7 +87,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
                 };
                 Content = sv;
             }
-            
+            //isLoading = false;
+            Debug.WriteLine("Loading finished");
+            //Content = contentGrid;
+
         }
         async private void Add_Record(object sender, EventArgs e)
         {
