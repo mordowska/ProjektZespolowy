@@ -25,7 +25,7 @@
                 <Entry Placeholder="Login" Grid.Row="3" Grid.Column="1" Text="{Binding NewLogin}"></Entry>
                 <Label Text="New Password" Grid.Row="4" Grid.Column="1"></Label>
                 <Entry Placeholder="Password" Grid.Row="5" Grid.Column="1" Text="{Binding NewPassword}" IsPassword="True"></Entry>
-                <Button Text="Change" Grid.Row="6" Grid.Column="1" Command="{Binding ChangeAdmin}"></Button>
+                <Button Text="Change" Grid.Row="6" Grid.Column="1" Command="{Binding ChangeAdmin}" Clicked="Button_Clicked"></Button>
 
             </Grid>
         </StackLayout>

@@ -9,6 +9,6 @@ namespace SystemZarzadzaniaAkademikiem.Services
     public interface IAdminRepo
     {
         Task<SuperUser> GetAdmin();
-        Task<int> UpdateAdmin(SuperUser admin);
+        Task<int> SaveAdminAsync(SuperUser admin);
     }
 }

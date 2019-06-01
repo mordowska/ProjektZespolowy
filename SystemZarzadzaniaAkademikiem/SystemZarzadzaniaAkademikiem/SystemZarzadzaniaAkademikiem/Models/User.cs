@@ -29,5 +29,32 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public string Smoking { set; get; }
         public string Party { set; get; }
         public int Room { set; get; }
+        public User(List<string> list)
+        {
+            Name = list[0];
+            Lastname = list[1];
+            Index = list[2];
+            Sex = list[3];
+            Floor = list[4];
+            BedLocation = list[5];
+            SleepTime = list[6];
+            WakeUpTime = list[7];
+            HotOrNot = list[8];
+            Music = list[9];
+            CleanUp = list[10];
+            Talkative = list[11];
+            StudyField = list[12];
+            Sporting = list[13];
+            HomeBack = list[14];
+            Smoking = list[15];
+            Party = list[16];
+            int.TryParse(list[17], out int result);
+            Room = result;
+
+        }
+        public User()
+        {
+
+        }
     }
 }

@@ -10,18 +10,23 @@ using Xamarin.Forms.Xaml;
 namespace SystemZarzadzaniaAkademikiem.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ChangeAdminPage : ContentPage
+	public partial class AddRecordPage : ContentPage
 	{
-        AdminChangeViewModel viewModel;
-        public ChangeAdminPage ()
+        AddRecordViewModel viewModel;
+		public AddRecordPage (string tableName)
 		{
 			InitializeComponent ();
-            BindingContext = viewModel = new AdminChangeViewModel();
+            BindingContext = viewModel = new AddRecordViewModel(tableName);
+		}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.LoadColumnsCommand.Execute(null);
         }
 
         async private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TablesPage());
+            await Navigation.PopAsync();
         }
     }
 }

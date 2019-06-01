@@ -24,9 +24,16 @@ namespace SystemZarzadzaniaAkademikiem.Services
         {
             return _database.Table<SuperUser>().FirstOrDefaultAsync();
         }
-        public Task<int> UpdateAdmin(SuperUser admin)
+        public Task<int> SaveAdminAsync(SuperUser admin)
         {
-            return _database.UpdateAsync(admin);
+            if (admin.Id != 0)
+            {
+                return _database.UpdateAsync(admin);
+            }
+            else
+            {
+                return _database.InsertAsync(admin);
+            }
         }
     }
 }

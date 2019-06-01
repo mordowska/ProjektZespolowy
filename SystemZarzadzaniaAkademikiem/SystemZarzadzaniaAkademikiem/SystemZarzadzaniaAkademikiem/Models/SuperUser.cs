@@ -8,7 +8,7 @@ namespace SystemZarzadzaniaAkademikiem.Models
     public class SuperUser
     {
         [PrimaryKey, AutoIncrement]
-        public int id { get; set; }
+        public int Id { get; set; }
         [NotNull,Unique]
         public string Login { get; set; }
         [NotNull,Unique]

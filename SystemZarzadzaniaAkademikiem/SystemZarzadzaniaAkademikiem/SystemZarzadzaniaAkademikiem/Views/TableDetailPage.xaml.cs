@@ -31,7 +31,6 @@ namespace SystemZarzadzaniaAkademikiem.Views
             int k = 0;
             foreach (var a in list)
             {
-                Debug.WriteLine(a.Name);
                 var label = new Label { Text=a.Name};
                 mainGrid.Children.Add(label,k,0);
                 k++;
@@ -46,14 +45,12 @@ namespace SystemZarzadzaniaAkademikiem.Views
                 {
                     
                     if (objects[row][column] != null) {
-                        Debug.WriteLine(objects[row][column]);
                         var label = new Label { Text = objects[row][column].ToString() };
                         mainGrid.Children.Add(label,column,row+1);
                         j = column;
                     }
                     if(objects[row][column] == null)
                     {
-                        Debug.WriteLine("NULL");
                         var label = new Label { Text = "NULL" };
                         mainGrid.Children.Add(label, column, row + 1);
                         j = column;
@@ -66,7 +63,9 @@ namespace SystemZarzadzaniaAkademikiem.Views
                 //j++;
             }
             main.Children.Add(mainGrid);
-            main.Children.Add(new Button { Text="Add", HorizontalOptions=LayoutOptions.Center,WidthRequest=300});
+            var addButton = new Button { Text = "Add", HorizontalOptions = LayoutOptions.Center, WidthRequest = 300 };
+            addButton.Clicked += Add_Record;
+            main.Children.Add(addButton);
             Content = new ScrollView
             {
                 HorizontalOptions = LayoutOptions.Fill,
@@ -75,7 +74,11 @@ namespace SystemZarzadzaniaAkademikiem.Views
             };
             
         }
-        public List<object[]> RunSql(string sqlString, bool includeColumnNamesAsFirstRow)
+        async private void Add_Record(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddRecordPage(viewModel?.name));
+        }
+        private List<object[]> RunSql(string sqlString, bool includeColumnNamesAsFirstRow)
         {
             var lstRes = new List<object[]>();
             SQLitePCL.sqlite3_stmt stQuery = null;
