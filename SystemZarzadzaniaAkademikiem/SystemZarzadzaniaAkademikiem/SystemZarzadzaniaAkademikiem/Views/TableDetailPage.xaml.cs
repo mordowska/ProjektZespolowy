@@ -24,17 +24,20 @@ namespace SystemZarzadzaniaAkademikiem.Views
         protected override void OnAppearing()
         {
             List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(viewModel.name);
-            StackLayout main = new StackLayout();
-            main.Orientation = StackOrientation.Vertical;
+            StackLayout main = new StackLayout { Orientation=StackOrientation.Vertical};
+            Grid mainGrid = new Grid { MinimumHeightRequest=80};
             StackLayout s = new StackLayout();
             s.Orientation = StackOrientation.Horizontal;
+            int k = 0;
             foreach (var a in list)
             {
                 Debug.WriteLine(a.Name);
                 var label = new Label { Text=a.Name};
-                s.Children.Add(label);
+                mainGrid.Children.Add(label,k,0);
+                k++;
             }
-            main.Children.Add(s);
+            //main.Children.Add(s,0,0);
+            int j=0;
             var objects = RunSql("SELECT * FROM "+viewModel.name,false);
             for (int row = 0; row < objects.Count; row++)
             {
@@ -45,15 +48,29 @@ namespace SystemZarzadzaniaAkademikiem.Views
                     if (objects[row][column] != null) {
                         Debug.WriteLine(objects[row][column]);
                         var label = new Label { Text = objects[row][column].ToString() };
-                        tempStack.Children.Add(label);
-                    } 
+                        mainGrid.Children.Add(label,column,row+1);
+                        j = column;
+                    }
+                    if(objects[row][column] == null)
+                    {
+                        Debug.WriteLine("NULL");
+                        var label = new Label { Text = "NULL" };
+                        mainGrid.Children.Add(label, column, row + 1);
+                        j = column;
+                    }
                 }
-                main.Children.Add(tempStack);
+                var buttonEdit = new Button { Text="Edit" };
+                var buttonDelete = new Button { Text="Delete" };
+                mainGrid.Children.Add(buttonEdit, j+1, row + 1);
+                mainGrid.Children.Add(buttonDelete, j + 2, row + 1);
+                //j++;
             }
+            main.Children.Add(mainGrid);
+            main.Children.Add(new Button { Text="Add", HorizontalOptions=LayoutOptions.Center,WidthRequest=300});
             Content = new ScrollView
             {
                 HorizontalOptions = LayoutOptions.Fill,
-                Orientation = ScrollOrientation.Horizontal,
+                Orientation = ScrollOrientation.Both,
                 Content = main
             };
             
