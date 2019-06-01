@@ -1,31 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using SystemZarzadzaniaAkademikiem.Data;
 using SystemZarzadzaniaAkademikiem.Models;
+using SQLite;
 
 namespace SystemZarzadzaniaAkademikiem.Services
 {
     public class RoomRepo : IRoomRepo
     {
-        public Task<int> DeleteRoomAsync(Room room)
+        private readonly SQLiteAsyncConnection _database;
+
+        public RoomRepo(AppDatabase database)
         {
-            throw new NotImplementedException();
+            _database = database.Database;
         }
 
-        public Task<Room> GetRoomAsync(string id)
+        public Task<int> DeleteRoomAsync(Room room)
         {
-            throw new NotImplementedException();
+            return _database.DeleteAsync(room);
+        }
+
+        public Task<Room> GetRoomAsync(string roomNumber)
+        {
+            return _database.Table<Room>().Where(i => i.RoomNumber == roomNumber).FirstOrDefaultAsync();
         }
 
         public Task<List<Room>> GetRoomsAsync()
         {
-            throw new NotImplementedException();
+            return _database.Table<Room>().ToListAsync();
         }
 
         public Task<int> SaveRoomAsync(Room room)
         {
-            throw new NotImplementedException();
+            if (room.Id != 0)
+                return _database.UpdateAsync(room);
+            return _database.InsertAsync(room);
         }
     }
 }
