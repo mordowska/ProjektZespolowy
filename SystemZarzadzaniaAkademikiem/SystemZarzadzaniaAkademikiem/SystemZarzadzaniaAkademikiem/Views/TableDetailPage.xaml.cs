@@ -21,6 +21,11 @@ namespace SystemZarzadzaniaAkademikiem.Views
 
             BindingContext = viewModel = tableDetailViewModel;
         }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+        }
         protected override void OnAppearing()
         {
             List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(viewModel.name);
@@ -67,12 +72,13 @@ namespace SystemZarzadzaniaAkademikiem.Views
             var addButton = new Button { Text = "Add", HorizontalOptions = LayoutOptions.Center, WidthRequest = 300 };
             addButton.Clicked += Add_Record;
             main.Children.Add(addButton);
-            Content = new ScrollView
+            ScrollView sv = new ScrollView
             {
                 HorizontalOptions = LayoutOptions.Fill,
                 Orientation = ScrollOrientation.Both,
                 Content = main
             };
+            Content = sv;
             
         }
         async private void Add_Record(object sender, EventArgs e)
@@ -140,10 +146,11 @@ namespace SystemZarzadzaniaAkademikiem.Views
                 }
             }
         }
-        private void Remove_Record(object sender, EventArgs e)
+        async private void Remove_Record(object sender, EventArgs e)
         {
             var button = sender as Button;
             viewModel?.DeleteRecordCommand.Execute(button.CommandParameter);
+            OnAppearing();
         }
     }
 }

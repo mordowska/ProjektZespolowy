@@ -9,11 +9,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     public class TableDetailViewModel
     {
         public string name;
-        //public Command DeleteRecordCommand;
         public TableDetailViewModel(string name)
         {
             this.name = name;
-            //DeleteRecordCommand = new Command((id) => ExecuteDeleteRecordCommand());
         }
         public Command DeleteRecordCommand
         {
@@ -21,14 +19,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             {
                 return new Command((id) =>
                 {
-                    Debug.WriteLine(id);
+                    App.Database.DatabaseNotAsync.Execute("DELETE FROM "+name+" WHERe Id="+id);
 
                 });
             }
         }
-        /*void ExecuteDeleteRecordCommand()
-        {
-            Debug.WriteLine(id);
-        }*/
     }
 }
