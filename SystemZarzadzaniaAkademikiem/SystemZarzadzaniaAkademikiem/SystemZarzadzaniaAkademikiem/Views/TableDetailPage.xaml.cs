@@ -15,6 +15,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 	public partial class TableDetailPage : ContentPage
 	{
         TableDetailViewModel viewModel;
+        public bool isLoading;
 		public TableDetailPage (TableDetailViewModel tableDetailViewModel)
 		{
 			InitializeComponent ();
@@ -23,6 +24,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
         }
         protected override void OnAppearing()
         {
+
             if (Content == null)
             {
                 List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(viewModel.name);
