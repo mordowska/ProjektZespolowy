@@ -1,4 +1,5 @@
-﻿using SystemZarzadzaniaAkademikiem.Services;
+﻿using System.Diagnostics;
+using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Views;
 using Xamarin.Forms;
 
@@ -41,7 +42,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteLoginAsAdmin()
         {
-            if (_login == adminRepo.GetAdmin().Result.Login && _password == adminRepo.GetAdmin().Result.Password)
+            if (_login == adminRepo.GetAdmin().Result.Login && _password == StringCipher.Decrypt(adminRepo.GetAdmin().Result.Password,adminRepo.GetAdmin().Result.Salt)) 
                 await Application.Current.MainPage.Navigation.PushAsync(new CRUDMainPage());
         }
     }

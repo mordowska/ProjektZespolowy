@@ -13,5 +13,7 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public string Login { get; set; }
         [NotNull,Unique]
         public string Password { get; set; }
+        [NotNull]
+        public string Salt { get; set; }
     }
 }

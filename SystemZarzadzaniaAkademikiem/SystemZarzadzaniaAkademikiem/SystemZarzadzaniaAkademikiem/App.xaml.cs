@@ -8,6 +8,8 @@ using System.Diagnostics;
 using SystemZarzadzaniaAkademikiem.Models;
 using System.Collections.Generic;
 using SystemZarzadzaniaAkademikiem.Services;
+using System.Security.Cryptography;
+using System.Text;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SystemZarzadzaniaAkademikiem
