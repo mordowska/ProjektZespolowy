@@ -19,7 +19,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
         }
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Match(new MatchViewModel(viewModel.index)));
+            if (viewModel.isValid)
+            {
+                await Navigation.PushAsync(new Match(new MatchViewModel(viewModel.index)));
+            }
         }
     }
 }
