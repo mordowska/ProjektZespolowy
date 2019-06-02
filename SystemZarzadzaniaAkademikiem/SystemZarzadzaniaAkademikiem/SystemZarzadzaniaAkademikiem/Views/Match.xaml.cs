@@ -19,6 +19,11 @@ namespace SystemZarzadzaniaAkademikiem.Views
             BindingContext = viewModel = matchViewModel;
 
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.DecideWhatToDo();
+        }
         protected async override void OnDisappearing()
         {
             base.OnDisappearing();

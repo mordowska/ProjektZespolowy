@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 
@@ -97,7 +98,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 //if(user.Room )
                 
             }
-
+            Debug.WriteLine("Algorytm");
             //else
             //sprawdz czy jest jeszcze wolny pokoj
             //jesli tak to do wolnego
