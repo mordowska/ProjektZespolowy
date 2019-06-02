@@ -18,6 +18,7 @@ namespace SystemZarzadzaniaAkademikiem
     {
         static AppDatabase database;
         private UserRepo userRepo;
+        private RoomRepo roomRepo;
         public static AppDatabase Database
         {
             get
@@ -41,6 +42,7 @@ namespace SystemZarzadzaniaAkademikiem
             if (Database.Database.Table<User>().FirstOrDefaultAsync().Result == null)
             {
                 LoadCSVUsers();
+                LoadCSVRooms();
             }
             
         }
@@ -73,6 +75,30 @@ namespace SystemZarzadzaniaAkademikiem
                     else
                     {
                         userRepo.SaveUserAsync(new User { Index=values[0],Name=values[1],Lastname=values[2]});
+                    }
+                }
+            }
+        }
+
+        private void LoadCSVRooms()
+        {
+            var csvFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "rooms.csv");
+            using (var reader = new StreamReader(csvFilePath))
+            {
+                List<string> listA = new List<string>();
+                List<string> listB = new List<string>();
+                bool noColumnName = true;
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(';');
+                    if (noColumnName)
+                    {
+                        noColumnName = false;
+                    }
+                    else
+                    {
+                        roomRepo.SaveRoomAsync(new Room { RoomNumber = values[0], Floor = values[1]});
                     }
                 }
             }
