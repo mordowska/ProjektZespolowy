@@ -32,16 +32,11 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteSaveImportantDataPreferences()
         {
-            isValid = Validate();
+            isValid = Validate() && Exists();
             if (isValid)
             {
-                var user = new User
-                {
-                    Name = Name,
-                    Lastname = Lastname,
-                    Index = Index,
-                    Sex = Sex
-                };
+                var user = userRepo.GetUserAsync(Index).Result;
+                user.Sex = Sex;
                 await userRepo.SaveUserAsync(user);
             }
         }
@@ -132,7 +127,30 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         {
             return ValidateName() && ValidateLastname() && ValidateIndex();
         }
-
+        private bool Exists()
+        {
+            return IndexExists() && NameMatches() && LastnameMatches();
+        }
+        private bool IndexExists()
+        {
+            return userRepo.GetUserAsync(Index).Result!=null;
+        }
+        private bool NameMatches()
+        {
+            if(userRepo.GetUserAsync(Index).Result == null)
+            {
+                return false;
+            }
+            return userRepo.GetUserAsync(Index).Result.Name == Name;
+        }
+        private bool LastnameMatches()
+        {
+            if (userRepo.GetUserAsync(Index).Result == null)
+            {
+                return false;
+            }
+            return userRepo.GetUserAsync(Index).Result.Lastname == Lastname;
+        }
         #endregion
     }
 }
