@@ -29,6 +29,8 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public string Smoking { set; get; }
         public string Party { set; get; }
         public int Room { set; get; }
+        public bool RoomMate { set; get; }
+
         public User(List<string> list)
         {
             Name = list[0];
@@ -50,7 +52,7 @@ namespace SystemZarzadzaniaAkademikiem.Models
             Party = list[16];
             int.TryParse(list[17], out int result);
             Room = result;
-
+            RoomMate = false;
         }
         public User()
         {
