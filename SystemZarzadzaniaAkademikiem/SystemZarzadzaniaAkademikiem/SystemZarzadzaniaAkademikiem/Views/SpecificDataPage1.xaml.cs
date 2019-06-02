@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.Views
 {
-	public class SpecificDataPage1 : ContentPage
+	public partial class SpecificDataPage1 : ContentPage
 	{
         private SpecificDataPage1ViewModel viewModel;
 
