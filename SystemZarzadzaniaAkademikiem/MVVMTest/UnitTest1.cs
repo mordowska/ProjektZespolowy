@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using SystemZarzadzaniaAkademikiem.ViewModels;
 
 namespace Tests
 {
@@ -12,7 +13,9 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            AdminLoginViewModel adminLoginViewModel = new AdminLoginViewModel();
+            adminLoginViewModel.Login = "1234567890";
+            Assert.AreEqual("1234567890", adminLoginViewModel.Login);
         }
     }
 }

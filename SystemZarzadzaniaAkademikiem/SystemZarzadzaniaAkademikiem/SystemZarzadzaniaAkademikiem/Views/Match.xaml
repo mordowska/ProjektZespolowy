@@ -5,7 +5,8 @@
              x:Class="SystemZarzadzaniaAkademikiem.Views.Match">
     <ContentPage.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+          <Label Text="{Binding Wynik}" />
+            <Button Text="Wroc do głównej strony" Clicked="Button_ClickedAsync"></Button>
       </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -19,7 +19,11 @@ namespace SystemZarzadzaniaAkademikiem.Views
             BindingContext = viewModel = matchViewModel;
 
         }
-
+        protected async override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            await Navigation.PopToRootAsync();
+        }
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PopToRootAsync();
