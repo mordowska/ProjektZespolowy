@@ -15,6 +15,7 @@ namespace SystemZarzadzaniaAkademikiem.Data
             DatabaseNotAsync = new SQLiteConnection(dbfile);
             Database.CreateTableAsync<SuperUser>().Wait();
             Database.CreateTableAsync<User>().Wait();
+            Database.CreateTableAsync<Room>().Wait();
         }
     }
 }
