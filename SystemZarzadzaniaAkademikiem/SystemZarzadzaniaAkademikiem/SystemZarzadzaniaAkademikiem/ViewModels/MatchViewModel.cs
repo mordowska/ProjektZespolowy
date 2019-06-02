@@ -73,7 +73,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             return null;
         }
 
-        public bool RoomHasFreeSlot(Room room)
+        public static bool RoomHasFreeSlot(Room room)
         {
             if (room.StudentA == null || room.StudentB == null)
                 return true;

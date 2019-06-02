@@ -10,7 +10,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 	public partial class CRUDMainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
-        CRUDMenu masterPage;
+        readonly CRUDMenu masterPage;
         public CRUDMainPage ()
 		{
             masterPage = new CRUDMenu(this);

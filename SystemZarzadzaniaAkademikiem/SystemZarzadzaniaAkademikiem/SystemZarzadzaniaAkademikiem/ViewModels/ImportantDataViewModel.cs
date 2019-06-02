@@ -14,7 +14,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private string _lastnameError = "";
         private string _name = "";
         private string _nameError = "";
-        public bool isValid = false;
+        public bool isValid;
 
         public UserRepo userRepo;
 

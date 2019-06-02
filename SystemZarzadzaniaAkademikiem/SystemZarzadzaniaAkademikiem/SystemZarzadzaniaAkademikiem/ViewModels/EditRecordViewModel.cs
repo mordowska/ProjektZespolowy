@@ -74,7 +74,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         void ExecuteEditRecordCommand()
         {
             if (IsBusy)
+            {
                 return;
+            }
+                
 
             IsBusy = true;
 

@@ -18,7 +18,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public ObservableCollection<Column> Columns { get; set; }
         public Command LoadColumnsCommand { get; set; }
         public Command AddRecordCommand { get; set; }
-        private string tableName;
+        private readonly string tableName;
         public AddRecordViewModel(string tableName)
         {
             Title = "Add Column";

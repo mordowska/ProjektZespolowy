@@ -6,7 +6,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
 {
     public partial class MainPage : ContentPage
     {
-        MainPageViewModel viewModel;
+        readonly MainPageViewModel viewModel;
         public MainPage()
         {
             InitializeComponent();
