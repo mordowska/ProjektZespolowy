@@ -37,6 +37,13 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 user.CleanUp = CleanUp;
                 await userRepo.SaveUserAsync(user);
             }
+            else
+            {
+                if (!ValidateBedLocation())
+                {
+                    BedLocationError = "Error";
+                }
+            }
         }
 
         public bool Validate()
@@ -46,7 +53,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
         #region
         public BedLocation BedLocation { get; set; } = BedLocation.Empty;
-
+        public string BedLocationError { get; set; } = "";
         private bool ValidateBedLocation()
         {
             return BedLocation != BedLocation.Empty;
