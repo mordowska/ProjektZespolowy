@@ -77,16 +77,20 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                                 {
                                     if (userRepo.GetUserAsync(room.StudentA).Result!=null)
                                     {
-                                        userRepo.GetUserAsync(room.StudentA).Result.RoomMate = false;
-                                        userRepo.GetUserAsync(room.StudentA).Result.RoomNumber = 0;
+                                        var roommate = userRepo.GetUserAsync(room.StudentA).Result;
+                                        roommate.RoomMate = false;
+                                        roommate.RoomNumber = 0;
+                                        userRepo.SaveUserAsync(roommate);
                                     }
                                 }
                                 if (room.StudentB!=null)
                                 {
                                     if (userRepo.GetUserAsync(room.StudentB).Result != null)
                                     {
-                                        userRepo.GetUserAsync(room.StudentB).Result.RoomMate = false;
-                                        userRepo.GetUserAsync(room.StudentB).Result.RoomNumber = 0;
+                                        var roommate = userRepo.GetUserAsync(room.StudentB).Result;
+                                        roommate.RoomMate = false;
+                                        roommate.RoomNumber = 0;
+                                        userRepo.SaveUserAsync(roommate);
                                     }
                                 }
                                 roomRepo.DeleteRoomAsync(room);
