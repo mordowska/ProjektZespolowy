@@ -46,18 +46,35 @@ namespace SystemZarzadzaniaAkademikiem.Views
                     var tempStack = new StackLayout { Orientation = StackOrientation.Horizontal };
                     for (int column = 0; column < objects[row].Length; column++)
                     {
-
-                        if (objects[row][column] != null)
-                        {
-                            var label = new Label { Text = objects[row][column].ToString() };
-                            mainGrid.Children.Add(label, column, row + 1);
-                            j = column;
-                        }
                         if (objects[row][column] == null)
                         {
                             var label = new Label { Text = "NULL" };
                             mainGrid.Children.Add(label, column, row + 1);
                             j = column;
+                        }
+                        else if (objects[row][column] != null)
+                        {
+                            if (objects[row][column].ToString().Length <= 1 && column != 18 && column != 19)
+                            {
+                                if (objects[row][column].ToString() == "0")
+                                {
+                                    var label = new Label { Text = "NULL" };
+                                    mainGrid.Children.Add(label, column, row + 1);
+                                    j = column;
+                                }
+                                else
+                                {
+                                    var label = new Label { Text = objects[row][column].ToString() };
+                                    mainGrid.Children.Add(label, column, row + 1);
+                                    j = column;
+                                }
+                            }
+                            else
+                            {
+                                var label = new Label { Text = objects[row][column].ToString() };
+                                mainGrid.Children.Add(label, column, row + 1);
+                                j = column;
+                            }
                         }
                     }
                     var buttonEdit = new Button { Text = "Edit", CommandParameter = objects[row][0] };

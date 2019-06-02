@@ -1,4 +1,5 @@
-﻿using SystemZarzadzaniaAkademikiem.Models;
+﻿using SystemZarzadzaniaAkademikiem.Enums;
+using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
@@ -11,18 +12,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private readonly User user;
         private readonly UserRepo userRepo;
         public bool isValid = false;
-        private string _homeBack = "";
-        private string _bedLocationError = "";
-        private string _party = "";
-        private string _partyError = "";
-        private string _smoking = "";
-        private string _smokingError = "";
-        private string _sporting = "";
-        private string _sportingError = "";
-        private string _studyField = "";
-        private string _studyFieldError = "";
-        private string _talkative = "";
-        private string _talkativeError = "";
 
 
         public SpecificDataPage2ViewModel(string index)
@@ -57,158 +46,49 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 ValidateParty() && ValidateSmoking();
         }
         #region
-        public string HomeBack
-        {
-            get => _homeBack;
-            set
-            {
-                _homeBack = value;
-                OnPropertyChanged();
-                HomeBackError = !ValidateHomeBack() ? "Pole nie może być puste" : "";
-            }
-        }
+        public HomeBack HomeBack { get; set; } = HomeBack.Empty;
 
         private bool ValidateHomeBack()
         {
-            return Validator.EmptyField(HomeBack);
+            return HomeBack != HomeBack.Empty;
         }
 
-        public string HomeBackError
-        {
-            get => _bedLocationError;
-            set
-            {
-                _bedLocationError = value;
-                OnPropertyChanged();
-            }
-        }
 
-        public string Talkative
-        {
-            get => _talkative;
-            set
-            {
-                _talkative = value;
-                OnPropertyChanged();
-                TalkativeError = !ValidateTalkative() ? "Pole nie może być puste" : "";
-            }
-        }
+        public Talkative Talkative { get; set; } = Talkative.Empty;
 
         private bool ValidateTalkative()
         {
-            return Validator.EmptyField(Talkative);
+            return Talkative != Talkative.Empty;
         }
 
-        public string TalkativeError
-        {
-            get => _talkativeError;
-            set
-            {
-                _talkativeError = value;
-                OnPropertyChanged();
-            }
-        }
 
-       public string Sporting
-        {
-            get => _sporting;
-            set
-            {
-                _sporting = value;
-                OnPropertyChanged();
-                SportingError = !ValidateSporting() ? "Pole nie może być puste" : "";
-            }
-        }
+       public YesNo Sporting { get; set; } = YesNo.Empty;
 
         private bool ValidateSporting()
         {
-            return Validator.EmptyField(Sporting);
+            return Sporting != YesNo.Empty;
         }
 
-        public string SportingError
-        {
-            get => _sportingError;
-            set
-            {
-                _sportingError = value;
-                OnPropertyChanged();
-            }
-        }
 
-        public string StudyField
-        {
-            get => _studyField;
-            set
-            {
-                _studyField = value;
-                OnPropertyChanged();
-                StudyFieldError = !ValidateStudyField() ? "Pole nie może być puste" : "";
-            }
-        }
+        public StudyField StudyField { get; set; } = StudyField.Empty;
 
         private bool ValidateStudyField()
         {
-            return Validator.EmptyField(StudyField);
+            return StudyField != StudyField.Empty;
         }
 
-        public string StudyFieldError
-        {
-            get => _studyFieldError;
-            set
-            {
-                _studyFieldError = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Party
-        {
-            get => _party;
-            set
-            {
-                _party = value;
-                OnPropertyChanged();
-                PartyError = !ValidateParty() ? "Pole nie może być puste" : "";
-            }
-        }
+        public Party Party { get; set; } = Party.Empty;
 
         private bool ValidateParty()
         {
-            return Validator.EmptyField(Party);
+            return Party != Party.Empty;
         }
 
-        public string PartyError
-        {
-            get => _partyError;
-            set
-            {
-                _partyError = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Smoking
-        {
-            get => _smoking;
-            set
-            {
-                _smoking = value;
-                OnPropertyChanged();
-                SmokingError = !ValidateSmoking() ? "Pole nie może być puste" : "";
-            }
-        }
+        public YesNo Smoking { get; set; } = YesNo.Empty;
 
         private bool ValidateSmoking()
         {
-            return Validator.EmptyField(Smoking);
-        }
-
-        public string SmokingError
-        {
-            get => _smokingError;
-            set
-            {
-                _smokingError = value;
-                OnPropertyChanged();
-            }
+            return Smoking != YesNo.Empty;
         }
 
 
