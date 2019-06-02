@@ -14,6 +14,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     {
         private UserRepo userRepo;
         private AdminRepo adminRepo;
+        private RoomRepo roomRepo;
+
         public ObservableCollection<Column> Columns { get; set; }
         public Command LoadColumnsCommand { get; set; }
         public Command AddRecordCommand { get; set; }
@@ -27,6 +29,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             AddRecordCommand = new Command(() => ExecuteAddRecordCommand());
             userRepo = new UserRepo(App.Database);
             adminRepo = new AdminRepo(App.Database);
+            roomRepo = new RoomRepo(App.Database);
         }
         void ExecuteLoadColumnsCommand()
         {
@@ -95,6 +98,23 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                             Password = Columns[1].Value 
                         };
                         adminRepo.SaveAdminAsync(newSuperUser);
+                        break;
+                    case "Room":
+                        List<string> tmp = new List<string>();
+                        for (int i = 0; i < Columns.Count; i++)
+                        {
+                            if (Columns[i].Value == "")
+                            {
+                                tmp.Add(null);
+                            }
+                            else
+                            {
+                                tmp.Add(Columns[i].Value);
+                            }
+                        }
+
+                        Room room = new Room(tmp);
+                        roomRepo.SaveRoomAsync(room);
                         break;
                     default:
                         Debug.WriteLine("Error, uknown table");

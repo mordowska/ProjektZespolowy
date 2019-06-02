@@ -14,6 +14,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     {
         private UserRepo userRepo;
         private AdminRepo adminRepo;
+        private RoomRepo roomRepo;
         public ObservableCollection<Column> Columns { get; set; }
         public Command EditRecordCommand { get; set; }
         private string tableName;
@@ -26,6 +27,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             Columns = new ObservableCollection<Column>();
             userRepo = new UserRepo(App.Database);
             adminRepo = new AdminRepo(App.Database);
+            roomRepo = new RoomRepo(App.Database);
             EditRecordCommand = new Command(() => ExecuteEditRecordCommand());
 
         }
@@ -99,6 +101,24 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                         int.TryParse(id.ToString(), out result);
                         newSuperUser.Id = result;
                         adminRepo.SaveAdminAsync(newSuperUser);
+                        break;
+                    case "Room":
+                        List<string> tmp = new List<string>();
+                        for (int i = 0; i < Columns.Count; i++)
+                        {
+                            if (Columns[i].Value == "")
+                            {
+                                tmp.Add(null);
+                            }
+                            else
+                            {
+                                tmp.Add(Columns[i].Value);
+                            }
+                        }
+                        Room room = new Room(tmp);
+                        int.TryParse(id.ToString(), out result);
+                        room.Id = result;
+                        roomRepo.SaveRoomAsync(room);
                         break;
                     default:
                         Debug.WriteLine("Error, uknown table");
