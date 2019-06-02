@@ -120,7 +120,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                     else
                         ContactWithAdmin();
                 }
-                else if (room != null)
+                else
                 {
                     room.StudentA = this.user.Index;
                     this.user.RoomNumber = room.RoomNumber;
