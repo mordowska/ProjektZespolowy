@@ -25,6 +25,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             Rooms = roomRepo.GetRoomsAsync().Result;
             Users = userRepo.GetUsersAsync().Result;
             user = userRepo.GetUserAsync(index).Result;
+            DecideWhatToDo();
         }
 
         public void SavePoints()
