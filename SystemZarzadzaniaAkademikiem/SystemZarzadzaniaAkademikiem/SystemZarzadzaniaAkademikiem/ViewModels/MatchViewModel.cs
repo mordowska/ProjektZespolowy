@@ -10,7 +10,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public readonly string index;
         private readonly User user;
         private readonly UserRepo userRepo;
+        private readonly RoomRepo roomRepo;
         private List<User> _users;
+        private List<Room> _rooms;
         private string bestCandidate = "";
         private int points;
 
@@ -32,12 +34,23 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             }
         }
 
+        public List<Room> Rooms
+        {
+            get => _rooms;
+            set
+            {
+                _rooms = roomRepo.GetRoomsAsync().Result;
+                _rooms = value;
+                OnPropertyChanged();
+            }
+        }
+
         public void SavePoints()
         {
             points = 0;
             foreach (var usr in Users)
-                if (usr.Index != index && usr.Sex == user.Sex) //tu jeszcze do warunku czy pokoj w ktorym jest usr ma juz 2 miejsca zajete jak tak to nei wchodz
-                    CountPoints(usr);                           //oo moze flaga do usr czy ma juz roommate'a
+                if (usr.Index != index && usr.Sex == user.Sex && usr.RoomMate==false)
+                    CountPoints(usr);                           
         }
 
         public void CountPoints(User user)
@@ -64,16 +77,25 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             }
         }
 
+        public Room FindFreeRoom()
+        {
+            foreach (var room in Rooms)
+            {
+                if (room.StudentA == null && room.StudentB == null)
+                    return room;
+            }
+            return null;
+        }
+
         public void DecideWhatToDo()
         {
+
             if (this.points >= 9)
             {
                 User user = userRepo.GetUserAsync(bestCandidate).Result;
-                //if room ma jeszcze wolne miejsce
-                this.user.Room = user.Room;
-                //room juz nei ma miejsc
-
-                //dodac do roomu flage czy wolny/zajety/ilosc miejsc co zostanie i jakos to ogarniac
+                user.RoomMate = true;
+                //if(user.Room )
+                
             }
 
             //else

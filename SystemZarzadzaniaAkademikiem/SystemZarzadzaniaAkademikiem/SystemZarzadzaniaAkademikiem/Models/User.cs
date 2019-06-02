@@ -28,7 +28,7 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public string HomeBack { set; get; }
         public string Smoking { set; get; }
         public string Party { set; get; }
-        public int Room { set; get; }
+        public int RoomNumber { set; get; }
         public bool RoomMate { set; get; }
 
         public User(List<string> list)
@@ -51,7 +51,7 @@ namespace SystemZarzadzaniaAkademikiem.Models
             Smoking = list[15];
             Party = list[16];
             int.TryParse(list[17], out int result);
-            Room = result;
+            RoomNumber = result;
             bool.TryParse(list[18], out bool boolResult);
             RoomMate = boolResult;
         }
