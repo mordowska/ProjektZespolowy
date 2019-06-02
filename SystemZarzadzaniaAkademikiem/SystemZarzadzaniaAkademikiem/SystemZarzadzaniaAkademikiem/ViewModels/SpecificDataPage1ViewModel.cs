@@ -55,7 +55,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         public bool Validate()
         {
-            return false;
+            return ValidateBedLocation() && ValidateCleanUp() && ValidateFloor() && ValidateHotOrNot() && ValidateMusic() &&
+                ValidateSleepTime() && ValidateWakeUpTime();
         }
         #region
         public string BedLocation
