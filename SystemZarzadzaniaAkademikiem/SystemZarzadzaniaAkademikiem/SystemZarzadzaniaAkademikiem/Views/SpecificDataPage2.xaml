@@ -13,7 +13,7 @@
             <Grid Padding="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Text="Preferujesz osoby ciche czy rozmowne?" />
                 <controls:EnumBindablePicker  x:TypeArguments="enums:Talkative" SelectedItem="{Binding Talkative}" Grid.Column="1" Grid.Row="0"></controls:EnumBindablePicker>
