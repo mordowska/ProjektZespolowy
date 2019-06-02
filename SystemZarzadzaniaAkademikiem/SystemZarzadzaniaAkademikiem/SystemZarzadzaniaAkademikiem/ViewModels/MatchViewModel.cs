@@ -79,7 +79,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         public void ContactWithAdmin()
         {
-            //koniec programu skontaktuj sie z adminem
+            Wynik = "Coś poszło nie tak. Skontaktuj się z adminem.";
         }
 
         public void Accomodate(Room room)
@@ -90,6 +90,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             user.RoomMate = true;
             this.user.RoomMate = true;
             user.RoomNumber = room.RoomNumber;
+            Wynik = $"Gratulacje, Ty i Twój współlokator pasujecie do siebie w {(float)points/maxPoints} procentach! Twój pokój to {room.RoomNumber}";
         }
         
         public void DecideWhatToDo()
@@ -120,6 +121,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 {
                     room.StudentA = this.user.Index;
                     this.user.RoomNumber = room.RoomNumber;
+                    Wynik = $"Twój pokój to {room.RoomNumber}.";
                 }
             }
         }

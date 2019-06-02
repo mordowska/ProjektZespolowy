@@ -22,6 +22,12 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             get { return title; }
             set { SetProperty(ref title, value); }
         }
+        string wynik = string.Empty;
+        public string Wynik
+        {
+            get { return wynik; }
+            set { SetProperty(ref wynik, value); }
+        }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
