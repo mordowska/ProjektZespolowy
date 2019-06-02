@@ -6,7 +6,7 @@
     x:Class="SystemZarzadzaniaAkademikiem.Views.SpecificDataPage1">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Proszę wypełnić specyficzne dane, które pozwolą nam wspomóc cie w wybraniu doskonałego pokoju do twych potrzeb." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Label Text="Proszę wypełnić specyficzne dane, które są potrzebne do znalezienia odpowiedniego współlokatora." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
             <Grid Padding="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
