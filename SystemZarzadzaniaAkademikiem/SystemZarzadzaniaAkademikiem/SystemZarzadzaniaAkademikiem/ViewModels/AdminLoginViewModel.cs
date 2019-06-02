@@ -72,7 +72,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private async void ExecuteLoginAsAdmin()
         {
-            if (_login != adminRepo.GetAdmin().Result.Login || _password == StringCipher.Decrypt(adminRepo.GetAdmin().Result.Password, adminRepo.GetAdmin().Result.Salt))
+            if (_login != adminRepo.GetAdmin().Result.Login || _password != StringCipher.Decrypt(adminRepo.GetAdmin().Result.Password, adminRepo.GetAdmin().Result.Salt))
             {
                     PasswordError = "Hasło albo login nie są prawidłowe";
                     LoginError = "Hasło albo login nie są prawidłowe";
