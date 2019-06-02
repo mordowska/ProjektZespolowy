@@ -39,12 +39,17 @@ namespace SystemZarzadzaniaAkademikiem
         protected override void OnStart()
         {
             userRepo = new UserRepo(Database);
+            roomRepo = new RoomRepo(Database);
             if (Database.Database.Table<User>().FirstOrDefaultAsync().Result == null)
             {
                 LoadCSVUsers();
+                
+            }
+            if (Database.Database.Table<Room>().FirstOrDefaultAsync().Result == null)
+            {
                 LoadCSVRooms();
             }
-            
+
         }
 
         protected override void OnSleep()
