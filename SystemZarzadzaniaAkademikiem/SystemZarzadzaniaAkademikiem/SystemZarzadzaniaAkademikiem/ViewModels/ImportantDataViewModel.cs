@@ -8,7 +8,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class ImportantDataViewModel : BaseViewModel
     {
-        private readonly User user = null;
         private string _index = "";
         private string _indexError = "";
         private string _lastname = "";
@@ -24,7 +23,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             _name = user?.Name;
             _lastname = user?.Lastname;
             _index = user?.Index;
-            //Sex = user?.Sex;
             SaveImportantDataPreferences = new Command(ExecuteSaveImportantDataPreferences);
             userRepo = new UserRepo(App.Database);
         }

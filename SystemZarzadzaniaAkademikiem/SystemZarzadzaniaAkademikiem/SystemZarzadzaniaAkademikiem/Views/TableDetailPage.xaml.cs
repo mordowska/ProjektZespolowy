@@ -35,12 +35,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
                     mainGrid.Children.Add(label, k, 0);
                     k++;
                 }
-                //main.Children.Add(s,0,0);
                 int j = 0;
                 var objects = RunSql("SELECT * FROM " + viewModel.name, false);
                 for (int row = 0; row < objects.Count; row++)
                 {
-                    var tempStack = new StackLayout { Orientation = StackOrientation.Horizontal };
                     for (int column = 0; column < objects[row].Length; column++)
                     {
                         if (objects[row][column] == null)
@@ -81,7 +79,6 @@ namespace SystemZarzadzaniaAkademikiem.Views
                     buttonEdit.Clicked += Edit_Record;
                     mainGrid.Children.Add(buttonEdit, j + 1, row + 1);
                     mainGrid.Children.Add(buttonDelete, j + 2, row + 1);
-                    //j++;
                 }
                 main.Children.Add(mainGrid);
                 var addButton = new Button { Text = "Add", HorizontalOptions = LayoutOptions.Center, WidthRequest = 300 };

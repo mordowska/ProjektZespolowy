@@ -55,7 +55,7 @@ namespace SystemZarzadzaniaAkademikiem.Controls
             }
         }
 
-        private static void OnSelectedItemChanged(BindableObject bindable, object oldvalue, object newvalue)
+        private static void OnSelectedItemChanged(BindableObject bindable, object newvalue)
         {
             var picker = bindable as EnumBindablePicker<T>;
             if (newvalue != null)

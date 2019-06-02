@@ -64,8 +64,6 @@ namespace SystemZarzadzaniaAkademikiem
             var csvFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "data.csv");
             using (var reader = new StreamReader(csvFilePath))
             {
-                List<string> listA = new List<string>();
-                List<string> listB = new List<string>();
                 bool noColumnName = true;
                 while (!reader.EndOfStream)
                 {

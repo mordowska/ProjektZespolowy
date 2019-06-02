@@ -8,7 +8,7 @@ namespace SystemZarzadzaniaAkademikiem.Validators
         {
             if (field == null)
                 return false;
-            var str = field as string;
+            var str = field;
             return !string.IsNullOrWhiteSpace(str);
         }
 
@@ -16,7 +16,7 @@ namespace SystemZarzadzaniaAkademikiem.Validators
         {
             if (index == null)
                 return false;
-            var tmp = index as string;
+            var tmp = index;
             Regex regex = new Regex(@"^([1-9][0-9]{5})$");
             Match match = regex.Match(tmp);
             return match.Success;
@@ -25,14 +25,14 @@ namespace SystemZarzadzaniaAkademikiem.Validators
         {
             if (login == null)
                 return false;
-            var str = login as string;
+            var str = login;
             return !string.IsNullOrWhiteSpace(str) && str.Length>5;
         }
         public static bool ValidPassword(string password)
         {
             if (password == null)
                 return false;
-            var str = password as string;
+            var str = password;
             string patdi = @"\d+"; //match digits
             string patupp = @"[A-Z]+"; //match upper cases
             string patlow = @"[a-z]+"; //match lower cases
