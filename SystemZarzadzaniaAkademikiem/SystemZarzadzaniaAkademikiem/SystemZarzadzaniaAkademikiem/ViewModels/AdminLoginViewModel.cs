@@ -51,7 +51,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
         public string PasswordError
         {
-            get => _passwordError;
             set
             {
                 _passwordError = value;
@@ -60,7 +59,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
         public string LoginError
         {
-            get => _loginError;
             set
             {
                 _loginError = value;

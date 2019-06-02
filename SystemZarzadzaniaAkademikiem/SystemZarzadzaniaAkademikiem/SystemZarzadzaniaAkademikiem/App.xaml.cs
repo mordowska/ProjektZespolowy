@@ -86,8 +86,6 @@ namespace SystemZarzadzaniaAkademikiem
             var csvFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "rooms.csv");
             using (var reader = new StreamReader(csvFilePath))
             {
-                List<string> listA = new List<string>();
-                List<string> listB = new List<string>();
                 bool noColumnName = true;
                 while (!reader.EndOfStream)
                 {
@@ -100,7 +98,7 @@ namespace SystemZarzadzaniaAkademikiem
                     else
                     {
                         int.TryParse(values[0], out int result);
-                        Enum.TryParse<Floor>(values[1], out Floor floor);
+                        Enum.TryParse(values[1], out Floor floor);
                         roomRepo.SaveRoomAsync(new Room { RoomNumber = result, Floor = floor});
                     }
                 }
