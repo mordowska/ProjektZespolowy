@@ -56,7 +56,18 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             }
             else if (!Exists())
             {
-
+                if(!NameMatches())
+                {
+                    NameError ="Imie nie pasuje do podanego Indeksu";
+                }
+                if (!IndexExists())
+                {
+                    IndexError = "Podany indeks nie znajduje sie w bazie danych";
+                }
+                if (!LastnameMatches())
+                {
+                    LastnameError = "Nazwisko nie pasuje do podanego Indeksu";
+                }
             }
         }
 
