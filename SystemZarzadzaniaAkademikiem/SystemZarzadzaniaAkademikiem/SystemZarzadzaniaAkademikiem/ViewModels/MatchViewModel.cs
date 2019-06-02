@@ -38,7 +38,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         {
             var points = 0;
             if (user.Floor == this.user.Floor) points++;
-            else if (user.BedLocation == this.user.BedLocation) points++;
+            else if (user.BedLocation != this.user.BedLocation) points++;
             else if (user.SleepTime == this.user.SleepTime) points++;
             else if (user.WakeUpTime == this.user.WakeUpTime) points++;
             else if (user.HotOrNot == this.user.HotOrNot) points++;
