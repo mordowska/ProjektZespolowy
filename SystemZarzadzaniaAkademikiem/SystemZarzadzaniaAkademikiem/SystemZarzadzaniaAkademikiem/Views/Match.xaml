@@ -5,7 +5,7 @@
              x:Class="SystemZarzadzaniaAkademikiem.Views.Match">
     <ContentPage.Content>
       <StackLayout>
-          <Label Text="{Binding Wynik}" />
+          <Label Text="{Binding Wynik}" FontSize="Large"  TextColor="MediumBlue"  TextDecorations="Underline" VerticalOptions="Center" HorizontalOptions="Center"/>
             <Button Text="Wroc do głównej strony" Clicked="Button_ClickedAsync"></Button>
       </StackLayout>
     </ContentPage.Content>
