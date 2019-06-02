@@ -33,7 +33,6 @@
                             <x:String>Mężczyzna</x:String>
                             <x:String>Kobieta</x:String>
                         </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
                     </Picker>
                 </Grid>
                 <Grid Grid.Column="1" />

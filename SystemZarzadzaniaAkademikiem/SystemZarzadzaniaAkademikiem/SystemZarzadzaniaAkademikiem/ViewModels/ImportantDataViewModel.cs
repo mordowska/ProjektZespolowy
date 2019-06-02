@@ -62,7 +62,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         #region
 
-        public string Sex { get; set; }
+        public string Sex { get; set; } = "Kobieta";
 
         public string Name
         {
