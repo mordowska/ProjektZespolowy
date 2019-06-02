@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 
@@ -9,11 +8,11 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     {
         private const int maxPoints = 12;
         public readonly string index;
+        private readonly RoomRepo roomRepo;
         private readonly User user;
         private readonly UserRepo userRepo;
-        private readonly RoomRepo roomRepo;
-        private List<User> _users;
         private List<Room> _rooms;
+        private List<User> _users;
         private string bestCandidate = "";
         private int points;
 
@@ -46,12 +45,12 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             }
         }
 
-        public void SavePoints()
+        public void SavePoints(List<User> users = null)
         {
             points = 0;
-            foreach (var usr in Users)
-                if (usr.Index != index && usr.Sex == user.Sex && usr.RoomMate==false)
-                    CountPoints(usr);                           
+            foreach (var usr in users ?? Users)
+                if (usr.Index != index && usr.Sex == user.Sex && usr.RoomMate == false)
+                    CountPoints(usr);
         }
 
         public void CountPoints(User user)
@@ -81,28 +80,61 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public Room FindFreeRoom()
         {
             foreach (var room in Rooms)
-            {
                 if (room.StudentA == null && room.StudentB == null)
                     return room;
-            }
             return null;
         }
 
+        public bool RoomHasFreeSlot(Room room)
+        {
+            if (room.StudentA == null || room.StudentB == null)
+                return true;
+            return false;
+        }
+
+        public void ContactWithAdmin()
+        {
+            //koniec programu skontaktuj sie z adminem
+        }
+
+        public void Accomodate(Room room)
+        {
+            var user = userRepo.GetUserAsync(bestCandidate).Result;
+            if (room.StudentA == null) room.StudentA = this.user.Index;
+            room.StudentB = this.user.Index;
+            user.RoomMate = true;
+            this.user.RoomMate = true;
+        }
+
+
         public void DecideWhatToDo()
         {
-
-            if (this.points >= 9)
+            User user = null;
+            if (points >= 9)
             {
-                User user = userRepo.GetUserAsync(bestCandidate).Result;
-                user.RoomMate = true;
-                //if(user.Room )
-                
+                user = userRepo.GetUserAsync(bestCandidate).Result;
+                var room = roomRepo.GetRoomAsync(user.RoomNumber).Result;
+                if (room.StudentA != null && room.StudentB != null)
+                    ContactWithAdmin();
+                else
+                    Accomodate(room);
             }
-            Debug.WriteLine("Algorytm");
-            //else
-            //sprawdz czy jest jeszcze wolny pokoj
-            //jesli tak to do wolnego
-            //jesli nie to do besta
+            else
+            {
+                var room = FindFreeRoom();
+                if (room == null)
+                {
+                    var roomBestCandidate = roomRepo.GetRoomAsync(user.RoomNumber).Result;
+                    if (RoomHasFreeSlot(roomBestCandidate))
+                        Accomodate(roomBestCandidate);
+                    else
+                        ContactWithAdmin();
+                }
+                else if (room != null)
+                {
+                    room.StudentA = this.user.Index;
+                }
+            }
         }
     }
 }
