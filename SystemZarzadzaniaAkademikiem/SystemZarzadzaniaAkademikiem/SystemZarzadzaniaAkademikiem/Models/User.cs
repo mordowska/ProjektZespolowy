@@ -52,7 +52,8 @@ namespace SystemZarzadzaniaAkademikiem.Models
             Party = list[16];
             int.TryParse(list[17], out int result);
             Room = result;
-            RoomMate = false;
+            bool.TryParse(list[18], out bool boolResult);
+            RoomMate = boolResult;
         }
         public User()
         {
