@@ -33,25 +33,28 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             points = 0;
             foreach (var usr in Users)
                 if (usr.Index != index && usr.Sex == user.Sex && usr.RoomMate == false)
+                {
+                    if (points == maxPoints) break;
                     CountPoints(usr);
+                }
         }
 
         public void CountPoints(User user)
         {
             var points = 0;
             if (user.Floor == this.user.Floor) points++;
-            else if (user.BedLocation != this.user.BedLocation) points++;
-            else if (user.SleepTime == this.user.SleepTime) points++;
-            else if (user.WakeUpTime == this.user.WakeUpTime) points++;
-            else if (user.HotOrNot == this.user.HotOrNot) points++;
-            else if (user.Music == this.user.Music) points++;
-            else if (user.CleanUp == this.user.CleanUp) points++;
-            else if (user.Talkative == this.user.Talkative) points++;
-            else if (user.StudyField == this.user.StudyField) points++;
-            else if (user.Sporting == this.user.Sporting) points++;
-            else if (user.HomeBack == this.user.HomeBack) points++;
-            else if (user.Smoking == this.user.Smoking) points++;
-            else if (user.Party == this.user.Party) points++;
+            if (user.BedLocation != this.user.BedLocation) points++;
+            if (user.SleepTime == this.user.SleepTime) points++;
+            if (user.WakeUpTime == this.user.WakeUpTime) points++;
+            if (user.HotOrNot == this.user.HotOrNot) points++;
+            if (user.Music == this.user.Music) points++;
+            if (user.CleanUp == this.user.CleanUp) points++;
+            if (user.Talkative == this.user.Talkative) points++;
+            if (user.StudyField == this.user.StudyField) points++;
+            if (user.Sporting == this.user.Sporting) points++;
+            if (user.HomeBack == this.user.HomeBack) points++;
+            if (user.Smoking == this.user.Smoking) points++;
+            if (user.Party == this.user.Party) points++;
 
             if (points > this.points)
             {
@@ -87,7 +90,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         {
             var user = userRepo.GetUserAsync(bestCandidate).Result;
             if (room.StudentA == null) room.StudentA = this.user.Index;
-            room.StudentB = this.user.Index;
+            else room.StudentB = this.user.Index;
             user.RoomMate = true;
             this.user.RoomMate = true;
             user.RoomNumber = room.RoomNumber;
