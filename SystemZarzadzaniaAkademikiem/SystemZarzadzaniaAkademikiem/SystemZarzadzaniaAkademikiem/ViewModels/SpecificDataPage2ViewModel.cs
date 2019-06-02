@@ -24,12 +24,12 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             userRepo = new UserRepo(App.Database);
         }
 
-        public string HomeBack { get; set; } = "Co weekend";
-        public string Party { get; set; } = "Nie chodze/bardzo rzadko";
-        public string Smoking { get; set; } = "Tak";
-        public string Sporting { get; set; } = "Tak";
-        public string StudyField { get; set; } = "Ścisły";
-        public string Talkative { get; set; } = "Ciche";
+        public string HomeBack { get; set; }
+        public string Party { get; set; }
+        public string Smoking { get; set; }
+        public string Sporting { get; set; }
+        public string StudyField { get; set; } 
+        public string Talkative { get; set; }
 
         public Command SaveSpecificData2 { get; set; }
 

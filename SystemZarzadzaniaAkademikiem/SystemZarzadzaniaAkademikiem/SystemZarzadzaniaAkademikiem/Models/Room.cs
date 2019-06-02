@@ -15,9 +15,9 @@ namespace SystemZarzadzaniaAkademikiem.Models
         {
             int.TryParse(list[0], out int result);
             RoomNumber = result;
-            Floor = list[1];
-            StudentA = list[2];
-            StudentB = list[3];
+            StudentA = list[1];
+            StudentB = list[2];
+            Floor = list[3];
         }
 
         public Room()

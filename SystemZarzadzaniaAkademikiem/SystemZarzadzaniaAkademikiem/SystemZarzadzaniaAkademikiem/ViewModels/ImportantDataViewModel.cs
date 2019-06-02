@@ -86,7 +86,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         #region
 
-        public string Sex { get; set; } = "Kobieta";
+        public string Sex { get; set; }
 
         public string Name
         {
@@ -168,7 +168,11 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         private bool Validate()
         {
-            return ValidateName() && ValidateLastname() && ValidateIndex();
+            return ValidateName() && ValidateLastname() && ValidateIndex() && ValidateSex();
+        }
+        private bool ValidateSex()
+        {
+            return Sex != null;
         }
         private bool Exists()
         {

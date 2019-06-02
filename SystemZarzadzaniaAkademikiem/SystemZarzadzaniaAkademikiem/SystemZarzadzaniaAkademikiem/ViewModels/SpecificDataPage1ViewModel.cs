@@ -24,13 +24,13 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             userRepo = new UserRepo(App.Database);
         }
 
-        public string BedLocation { get; set; } = "Przy oknie";
-        public string CleanUp { get; set; } = "Tak";
-        public string Floor { get; set; } = "1";
-        public string HotOrNot { get; set; } = "Cieplej";
-        public string Music { get; set; } = "Słuchawki";
-        public string SleepTime { get; set; } = "Przed 22.30";
-        public string WakeUpTime { get; set; } = "Przed 6.00";
+        public string BedLocation { get; set; }
+        public string CleanUp { get; set; }
+        public string Floor { get; set; }
+        public string HotOrNot { get; set; }
+        public string Music { get; set; }
+        public string SleepTime { get; set; }
+        public string WakeUpTime { get; set; }
 
         public Command SaveSpecificData1 { get; set; }
 
