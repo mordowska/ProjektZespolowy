@@ -1,7 +1,6 @@
 ﻿using SystemZarzadzaniaAkademikiem.Enums;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
-using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels

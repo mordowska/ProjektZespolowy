@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SystemZarzadzaniaAkademikiem.Services;
+﻿using SystemZarzadzaniaAkademikiem.Services;
 using Xamarin.Forms;
 using SystemZarzadzaniaAkademikiem.Validators;
-using System.Diagnostics;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {

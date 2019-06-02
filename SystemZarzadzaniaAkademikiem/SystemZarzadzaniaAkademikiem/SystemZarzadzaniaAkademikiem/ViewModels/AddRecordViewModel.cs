@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using Xamarin.Forms;
@@ -85,7 +84,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                             {
                                 temp.Add(Columns[i].Value);
                             }
-                            Debug.WriteLine(temp[i]);
                         }
                         
                         User newUser = new User(temp);

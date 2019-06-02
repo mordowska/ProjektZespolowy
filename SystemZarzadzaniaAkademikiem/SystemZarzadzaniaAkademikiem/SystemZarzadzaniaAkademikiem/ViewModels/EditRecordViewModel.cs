@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using SQLite;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
@@ -97,7 +96,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                             {
                                 temp.Add(Columns[i].Value);
                             }
-                            Debug.WriteLine(temp[i]);
                         }
 
                         User newUser = new User(temp);

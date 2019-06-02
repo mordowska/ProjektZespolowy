@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Diagnostics;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using Xamarin.Forms;
@@ -31,18 +28,12 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                             App.Database.DatabaseNotAsync.Execute("DELETE FROM " + name + " WHERe Id=" + id);
                             break;
                         case "User":
-                            //Debug.WriteLine((int)id);
                             if (App.Database.Database.Table<User>().Where(i => i.Id == (int)id).FirstOrDefaultAsync().Result!=null)
                             {
                                 var user = App.Database.Database.Table<User>().Where(i => i.Id == (int)id).FirstOrDefaultAsync().Result;
-                                //Debug.WriteLine(user.Name);
-                               // Debug.WriteLine(user.RoomNumber);
                                 if (roomRepo.GetRoomAsync(user.RoomNumber).Result != null)
                                 {
                                     var room = roomRepo.GetRoomAsync(user.RoomNumber).Result;
-                                    Debug.WriteLine(room.StudentA);
-                                    Debug.WriteLine(room.StudentB);
-                                    Debug.WriteLine(user.Index);
                                     if (room.StudentA == user.Index)
                                     {
                                         room.StudentA = null;

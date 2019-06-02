@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using SystemZarzadzaniaAkademikiem.Views;
+﻿using SystemZarzadzaniaAkademikiem.Views;
 using Xamarin.Forms;
-using System.Collections.ObjectModel;
-using SystemZarzadzaniaAkademikiem.Models;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        static int MaxCounter = 1;
+        static int MaxCounter = 3;
         public Command ActivateAdminLogin { get; set; }
         public int Counter=0;
         public MainPageViewModel()
@@ -26,7 +20,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new AdminLoginPage());
             }
-            Debug.WriteLine(Counter);
         }
 
     }

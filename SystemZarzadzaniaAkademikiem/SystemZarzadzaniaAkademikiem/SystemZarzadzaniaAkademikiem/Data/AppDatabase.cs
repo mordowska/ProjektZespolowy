@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using SQLite;
+﻿using SQLite;
 using SystemZarzadzaniaAkademikiem.Models;
 
 namespace SystemZarzadzaniaAkademikiem.Data

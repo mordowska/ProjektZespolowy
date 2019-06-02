@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using SystemZarzadzaniaAkademikiem.Services;
+﻿using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using SystemZarzadzaniaAkademikiem.Views;
 using Xamarin.Forms;

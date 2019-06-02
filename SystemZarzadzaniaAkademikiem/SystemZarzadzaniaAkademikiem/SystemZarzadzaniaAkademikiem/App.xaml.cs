@@ -4,12 +4,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SystemZarzadzaniaAkademikiem.Data;
 using System.IO;
-using System.Diagnostics;
 using SystemZarzadzaniaAkademikiem.Models;
 using System.Collections.Generic;
 using SystemZarzadzaniaAkademikiem.Services;
-using System.Security.Cryptography;
-using System.Text;
 using SystemZarzadzaniaAkademikiem.Enums;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]

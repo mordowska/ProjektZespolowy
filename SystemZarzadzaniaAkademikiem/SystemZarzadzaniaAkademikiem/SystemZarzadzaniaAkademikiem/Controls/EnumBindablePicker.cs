@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.Controls

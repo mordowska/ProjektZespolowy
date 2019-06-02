@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.ViewModels;
 using Xamarin.Forms;
 

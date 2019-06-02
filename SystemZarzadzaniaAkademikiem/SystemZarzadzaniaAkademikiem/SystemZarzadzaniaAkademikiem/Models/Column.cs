@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SystemZarzadzaniaAkademikiem.Models
+﻿namespace SystemZarzadzaniaAkademikiem.Models
 {
     public class Column
     {

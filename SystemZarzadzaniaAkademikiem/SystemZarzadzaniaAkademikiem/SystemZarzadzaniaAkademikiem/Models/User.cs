@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using SQLite;
-using System.ComponentModel.DataAnnotations;
 using SystemZarzadzaniaAkademikiem.Enums;
 
 namespace SystemZarzadzaniaAkademikiem.Models
