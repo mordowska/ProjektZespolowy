@@ -7,7 +7,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class TableDetailViewModel
     {
-        private string name;
+        public string name;
         private UserRepo userRepo;
         private RoomRepo roomRepo;
         public TableDetailViewModel(string name)
