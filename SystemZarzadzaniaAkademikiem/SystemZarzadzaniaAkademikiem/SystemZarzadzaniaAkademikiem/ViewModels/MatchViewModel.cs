@@ -104,9 +104,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             room.StudentB = this.user.Index;
             user.RoomMate = true;
             this.user.RoomMate = true;
+            user.RoomNumber = room.RoomNumber;
         }
-
-
+        
         public void DecideWhatToDo()
         {
             User user = null;
@@ -133,6 +133,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 else if (room != null)
                 {
                     room.StudentA = this.user.Index;
+                    this.user.RoomNumber = room.RoomNumber;
                 }
             }
         }
