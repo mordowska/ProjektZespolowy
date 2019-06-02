@@ -29,10 +29,17 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         }
 
         public Command SaveImportantDataPreferences { get; set; }
-
+        private bool NoRoomAssigned()
+        {
+            if (userRepo.GetUserAsync(Index).Result == null || userRepo.GetUserAsync(Index).Result.RoomNumber!=0)
+            {
+                return false;
+            }
+            return true;
+        }
         private async void ExecuteSaveImportantDataPreferences()
         {
-            isValid = Validate() && Exists();
+            isValid = Validate() && Exists() && NoRoomAssigned();
             if (isValid)
             {
                 var user = userRepo.GetUserAsync(Index).Result;
@@ -68,6 +75,12 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 {
                     LastnameError = "Nazwisko nie pasuje do podanego Indeksu";
                 }
+            }
+            else if (!NoRoomAssigned())
+            {
+                    NameError = "Masz juz pokój dopasowany, w razie błędów proszę powiadomić obsługę";
+                    IndexError = "";
+                    LastnameError = "";
             }
         }
 
