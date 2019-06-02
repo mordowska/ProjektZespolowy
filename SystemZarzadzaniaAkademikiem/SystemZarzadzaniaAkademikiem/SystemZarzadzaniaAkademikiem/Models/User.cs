@@ -4,6 +4,10 @@ using System.Text;
 using SQLite;
 namespace SystemZarzadzaniaAkademikiem.Models
 {
+    public enum Sex
+    {
+        Man,Woman
+    }
     public class User
     {
         [PrimaryKey,AutoIncrement]
@@ -14,7 +18,7 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public string Lastname { set; get; }
         [NotNull,Unique]
         public string Index { set; get; }
-        public string Sex { set; get; }
+        public Sex Sex { set; get; }
         public string Floor { set; get; }
         public string BedLocation { set; get; }
         public string SleepTime { set; get; }
