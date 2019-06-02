@@ -11,8 +11,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private readonly RoomRepo roomRepo;
         private readonly User user;
         private readonly UserRepo userRepo;
-        private List<Room> _rooms;
-        private List<User> _users;
+        public List<Room> Rooms;
+        public List<User> Users;
         private string bestCandidate = "";
         private int points;
 
@@ -20,29 +20,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         {
             this.index = index;
             userRepo = new UserRepo(App.Database);
+            roomRepo = new RoomRepo(App.Database);
+            Rooms = roomRepo.GetRoomsAsync().Result;
+            Users = userRepo.GetUsersAsync().Result;
             user = userRepo.GetUserAsync(index).Result;
-        }
-
-        public List<User> Users
-        {
-            get => _users;
-            set
-            {
-                _users = value;
-                _users = userRepo.GetUsersAsync().Result;
-                OnPropertyChanged();
-            }
-        }
-
-        public List<Room> Rooms
-        {
-            get => _rooms;
-            set
-            {
-                _rooms = value;
-                _rooms = roomRepo.GetRoomsAsync().Result;
-                OnPropertyChanged();
-            }
         }
 
         public void SavePoints(List<User> users = null)
