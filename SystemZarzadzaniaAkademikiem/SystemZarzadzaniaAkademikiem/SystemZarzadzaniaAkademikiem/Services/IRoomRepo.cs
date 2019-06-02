@@ -9,7 +9,7 @@ namespace SystemZarzadzaniaAkademikiem.Services
     public interface IRoomRepo
     {
         Task<List<Room>> GetRoomsAsync();
-        Task<Room> GetRoomAsync(string id);
+        Task<Room> GetRoomAsync(int roomNumber);
         Task<int> SaveRoomAsync(Room room);
         Task<int> DeleteRoomAsync(Room room);
     }

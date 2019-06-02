@@ -103,7 +103,8 @@ namespace SystemZarzadzaniaAkademikiem
                     }
                     else
                     {
-                        roomRepo.SaveRoomAsync(new Room { RoomNumber = values[0], Floor = values[1]});
+                        int.TryParse(values[0], out int result);                             
+                        roomRepo.SaveRoomAsync(new Room { RoomNumber = result, Floor = values[1]});
                     }
                 }
             }
