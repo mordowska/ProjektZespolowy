@@ -13,24 +13,24 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public SpecificDataPage1ViewModel(string index)
         {
             user = new User();
-            Floor = user?.Floor;
-            BedLocation = user?.BedLocation;
-            CleanUp = user?.CleanUp;
-            HotOrNot = user?.HotOrNot;
-            Music = user?.Music;
-            SleepTime = user?.SleepTime;
+            //Floor = user?.Floor;
+            //BedLocation = user?.BedLocation;
+            //CleanUp = user?.CleanUp;
+            //HotOrNot = user?.HotOrNot;
+            //Music = user?.Music;
+            //SleepTime = user?.SleepTime;
             this.index = index;
             SaveSpecificData1 = new Command(ExecuteSaveSpecificData1);
             userRepo = new UserRepo(App.Database);
         }
 
-        public string BedLocation { get; set; } = "";
-        public string CleanUp { get; set; } = "";
-        public string Floor { get; set; } = "";
-        public string HotOrNot { get; set; } = "";
-        public string Music { get; set; } = "";
-        public string SleepTime { get; set; } = "";
-        public string WakeUpTime { get; set; } = "";
+        public string BedLocation { get; set; } = "Przy oknie";
+        public string CleanUp { get; set; } = "Tak";
+        public string Floor { get; set; } = "1";
+        public string HotOrNot { get; set; } = "Cieplej";
+        public string Music { get; set; } = "Słuchawki";
+        public string SleepTime { get; set; } = "Przed 22.30";
+        public string WakeUpTime { get; set; } = "Przed 6.00";
 
         public Command SaveSpecificData1 { get; set; }
 

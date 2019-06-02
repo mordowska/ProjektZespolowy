@@ -13,23 +13,23 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public SpecificDataPage2ViewModel(string index)
         {
             user = new User();
-            Talkative = user?.Talkative;
-            StudyField = user?.StudyField;
-            Sporting = user?.Sporting;
-            HomeBack = user?.HomeBack;
-            Smoking = user?.Smoking;
-            Party = user?.Party;
+            //Talkative = user?.Talkative;
+            //StudyField = user?.StudyField;
+            //Sporting = user?.Sporting;
+            //HomeBack = user?.HomeBack;
+            //Smoking = user?.Smoking;
+            //Party = user?.Party;
             this.index = index;
             SaveSpecificData2 = new Command(ExecuteSaveSpecificData2);
             userRepo = new UserRepo(App.Database);
         }
 
-        public string HomeBack { get; set; } = "";
-        public string Party { get; set; } = "";
-        public string Smoking { get; set; } = "";
-        public string Sporting { get; set; } = "";
-        public string StudyField { get; set; } = "";
-        public string Talkative { get; set; } = "";
+        public string HomeBack { get; set; } = "Co weekend";
+        public string Party { get; set; } = "Nie chodze/bardzo rzadko";
+        public string Smoking { get; set; } = "Tak";
+        public string Sporting { get; set; } = "Tak";
+        public string StudyField { get; set; } = "Ścisły";
+        public string Talkative { get; set; } = "Ciche";
 
         public Command SaveSpecificData2 { get; set; }
 
