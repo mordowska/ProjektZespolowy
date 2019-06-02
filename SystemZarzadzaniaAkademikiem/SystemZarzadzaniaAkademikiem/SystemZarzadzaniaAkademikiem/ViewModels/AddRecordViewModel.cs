@@ -44,7 +44,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(tableName);
                 foreach (var a in list)
                 {
-                    if (a.Name.ToLower() != "id")
+                    if (a.Name.ToLower() != "id" && a.Name.ToLower() != "salt")
                     {
                         Column c = new Column { Name = a.Name, Value = "" };
                         Columns.Add(c);
