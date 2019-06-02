@@ -7,7 +7,9 @@
         <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
                     <RowDefinition Height="0.1*"/>
                     <RowDefinition Height="0.1*"/>
                     <RowDefinition Height="0.1*"/>
@@ -23,9 +25,11 @@
                 <Label Text="Enter New Admin Credentials"  Grid.Row="1" Grid.Column="1"></Label>
                 <Label Text="New Login"  Grid.Row="2" Grid.Column="1"></Label>
                 <Entry Placeholder="Login" Grid.Row="3" Grid.Column="1" Text="{Binding NewLogin}"></Entry>
-                <Label Text="New Password" Grid.Row="4" Grid.Column="1"></Label>
-                <Entry Placeholder="Password" Grid.Row="5" Grid.Column="1" Text="{Binding NewPassword}" IsPassword="True"></Entry>
-                <Button Text="Change" Grid.Row="6" Grid.Column="1" Command="{Binding ChangeAdmin}" Clicked="Button_Clicked"></Button>
+                <Label Text="{Binding NewLoginError}"  Grid.Row="4" Grid.Column="1" TextColor="Red"></Label>
+                <Label Text="New Password" Grid.Row="5" Grid.Column="1"></Label>
+                <Entry Placeholder="Password" Grid.Row="6" Grid.Column="1" Text="{Binding NewPassword}" IsPassword="True"></Entry>
+                <Label Text="{Binding NewPasswordError}" Grid.Row="7" Grid.Column="1" TextColor="Red"></Label>
+                <Button Text="Change" Grid.Row="8" Grid.Column="1" Command="{Binding ChangeAdmin}" Clicked="Button_Clicked"></Button>
 
             </Grid>
         </StackLayout>

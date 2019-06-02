@@ -24,7 +24,15 @@ namespace SystemZarzadzaniaAkademikiem.Views
 
         async private void Button_Clicked(object sender, EventArgs e)
         {
-            await mainPage.NavigateFromMenu(1);
+            if (viewModel.isValid)
+            {
+                await mainPage.NavigateFromMenu(1);
+            }
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            viewModel.ClearData();
         }
     }
 }
