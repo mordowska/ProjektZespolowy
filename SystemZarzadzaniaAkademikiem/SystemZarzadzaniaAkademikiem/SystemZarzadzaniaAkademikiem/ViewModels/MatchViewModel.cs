@@ -95,7 +95,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             user.RoomNumber = room.RoomNumber;
             roomRepo.SaveRoomAsync(room);
             userRepo.SaveUserAsync(this.user);
-            Wynik = $"Gratulacje, Ty i Twój współlokator pasujecie do siebie w {(float)points/maxPoints} procentach! Twój pokój to {room.RoomNumber}";
+            Wynik = $"Gratulacje, Ty i Twój współlokator pasujecie do siebie w {(points * 100) / maxPoints} procentach! Twój pokój to {room.RoomNumber}";
         }
         
         public void DecideWhatToDo()
