@@ -1,4 +1,5 @@
-﻿using SystemZarzadzaniaAkademikiem.Models;
+﻿using SystemZarzadzaniaAkademikiem.Enums;
+using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
@@ -86,7 +87,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         #region
 
-        public string Sex { get; set; }
+        public Sex Sex { get; set; }
 
         public string Name
         {

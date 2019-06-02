@@ -1,4 +1,5 @@
-﻿using SystemZarzadzaniaAkademikiem.Models;
+﻿using SystemZarzadzaniaAkademikiem.Enums;
+using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 using SystemZarzadzaniaAkademikiem.Validators;
 using Xamarin.Forms;
@@ -11,20 +12,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private readonly User user;
         private readonly UserRepo userRepo;
         public bool isValid = false;
-        private string _bedLocation = "";
-        private string _bedLocationError = "";
-        private string _sleepTime = "";
-        private string _sleepTimeError = "";
-        private string _wakeUpTime = "";
-        private string _wakeUpTimeError = "";
-        private string _hotOrNot = "";
-        private string _hotOrNotError = "";
-        private string _music = "";
-        private string _musicError = "";
-        private string _cleanUp = "";
-        private string _cleanUpError = "";
-        private string _floor = "";
-        private string _floorError = "";
 
         public SpecificDataPage1ViewModel(string index)
         {
@@ -59,184 +46,56 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 ValidateSleepTime() && ValidateWakeUpTime();
         }
         #region
-        public string BedLocation
-        {
-            get => _bedLocation;
-            set
-            {
-                _bedLocation = value;
-                OnPropertyChanged();
-                BedLocationError = !ValidateBedLocation() ? "Pole nie może być puste" : "";
-            }
-        }
+        public BedLocation BedLocation { get; set; } = BedLocation.Empty;
 
         private bool ValidateBedLocation()
         {
-            return Validator.EmptyField(BedLocation);
+            return BedLocation != BedLocation.Empty;
         }
 
-        public string BedLocationError
-        {
-            get => _bedLocationError;
-            set
-            {
-                _bedLocationError = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string CleanUp
-        {
-            get => _cleanUp;
-            set
-            {
-                _cleanUp = value;
-                OnPropertyChanged();
-                CleanUpError = !ValidateCleanUp() ? "Pole nie może być puste" : "";
-            }
-        }
+        public YesNo CleanUp { get; set; } = YesNo.Empty;
 
         private bool ValidateCleanUp()
         {
-            return Validator.EmptyField(CleanUp);
+            return CleanUp != YesNo.Empty;
         }
 
-        public string CleanUpError
-        {
-            get => _cleanUpError;
-            set
-            {
-                _cleanUpError = value;
-                OnPropertyChanged();
-            }
-        }
 
-        public string Floor
-        {
-            get => _floor;
-            set
-            {
-                _floor = value;
-                OnPropertyChanged();
-                FloorError = !ValidateFloor() ? "Pole nie może być puste" : "";
-            }
-        }
+        public Floor Floor { get; set; } = Floor.Empty;
 
         private bool ValidateFloor()
         {
-            return Validator.EmptyField(Floor);
+            return Floor != Floor.Empty;
         }
 
-        public string FloorError
-        {
-            get => _floorError;
-            set
-            {
-                _floorError = value;
-                OnPropertyChanged();
-            }
-        }
 
-        public string HotOrNot
-        {
-            get => _hotOrNot;
-            set
-            {
-                _hotOrNot = value;
-                OnPropertyChanged();
-                HotOrNotError = !ValidateHotOrNot() ? "Pole nie może być puste" : "";
-            }
-        }
+        public HotOrNot HotOrNot { get; set; } = HotOrNot.Empty;
 
         private bool ValidateHotOrNot()
         {
-            return Validator.EmptyField(HotOrNot);
+            return HotOrNot != HotOrNot.Empty;
         }
 
-        public string HotOrNotError
-        {
-            get => _hotOrNotError;
-            set
-            {
-                _hotOrNotError = value;
-                OnPropertyChanged();
-            }
-        }
 
-        public string Music
-        {
-            get => _music;
-            set
-            {
-                _music = value;
-                OnPropertyChanged();
-                MusicError = !ValidateMusic() ? "Pole nie może być puste" : "";
-            }
-        }
+        public Music Music { get; set; } = Music.Empty;
 
         private bool ValidateMusic()
         {
-            return Validator.EmptyField(Music);
+            return Music != Music.Empty;
         }
 
-        public string MusicError
-        {
-            get => _musicError;
-            set
-            {
-                _musicError = value;
-                OnPropertyChanged();
-            }
-        }
-        public string SleepTime
-        {
-            get => _sleepTime;
-            set
-            {
-                _sleepTime = value;
-                OnPropertyChanged();
-                SleepTimeError = !ValidateSleepTime() ? "Pole nie może być puste" : "";
-            }
-        }
+        public SleepTime SleepTime { get; set; } = SleepTime.Empty;
 
         private bool ValidateSleepTime()
         {
-            return Validator.EmptyField(SleepTime);
+            return SleepTime != SleepTime.Empty;
         }
 
-        public string SleepTimeError
-        {
-            get => _sleepTimeError;
-            set
-            {
-                _sleepTimeError = value;
-                OnPropertyChanged();
-            }
-        }
-        public string WakeUpTime
-        {
-            get => _wakeUpTime;
-            set
-            {
-                _wakeUpTime = value;
-                OnPropertyChanged();
-                WakeUpTimeError = !ValidateWakeUpTime() ? "Pole nie może być puste" : "";
-            }
-        }
+        public WakeUpTime WakeUpTime { get; set; } = WakeUpTime.Empty;
 
         private bool ValidateWakeUpTime()
         {
-            return Validator.EmptyField(WakeUpTime);
-        }
-
-        public string WakeUpTimeError
-        {
-            get => _wakeUpTimeError;
-            set
-            {
-                _wakeUpTimeError = value;
-                OnPropertyChanged();
-            }
+            return WakeUpTime != WakeUpTime.Empty;
         }
 
 
