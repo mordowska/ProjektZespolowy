@@ -17,6 +17,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
         public ImportantDataPage ()
 		{
 			InitializeComponent ();
+            SexPicker.SelectedIndex = 0;
             viewModel = new ImportantDataViewModel();
             BindingContext = viewModel;
         }

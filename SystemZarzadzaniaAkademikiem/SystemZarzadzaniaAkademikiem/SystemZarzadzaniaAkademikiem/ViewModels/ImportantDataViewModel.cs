@@ -23,7 +23,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             _name = user?.Name;
             _lastname = user?.Lastname;
             _index = user?.Index;
-            Sex = user?.Sex;
+            //Sex = user?.Sex;
             SaveImportantDataPreferences = new Command(ExecuteSaveImportantDataPreferences);
             userRepo = new UserRepo(App.Database);
         }
@@ -39,11 +39,30 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 user.Sex = Sex;
                 await userRepo.SaveUserAsync(user);
             }
+            else if (!Validate())
+            {
+                if (!ValidateName())
+                {
+                    Name = Name;
+                }
+                if (!ValidateLastname())
+                {
+                    Lastname = Lastname;
+                }
+                if (!ValidateIndex())
+                {
+                    Index = Index;
+                }
+            }
+            else if (!Exists())
+            {
+
+            }
         }
 
         #region
 
-        public string Sex { get; set; } = "";
+        public string Sex { get; set; }
 
         public string Name
         {

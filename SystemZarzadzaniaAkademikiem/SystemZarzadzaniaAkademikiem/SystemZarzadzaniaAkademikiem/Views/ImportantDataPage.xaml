@@ -19,13 +19,16 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Text="Imię: " />
                     <Entry x:Name="Name" Placeholder="Imię" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" />
-                    <Label Text="Nazwisko: " Grid.Column="0" Grid.Row="1" />
-                    <Entry x:Name="Lastname" Placeholder="Nazwisko" Grid.Column="1" Grid.Row="1"
+                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding NameError}" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" />
+                    <Label Text="Nazwisko: " Grid.Column="0" Grid.Row="2" />
+                    <Entry x:Name="Lastname" Placeholder="Nazwisko" Grid.Column="1" Grid.Row="2"
                            Text="{Binding Lastname}" />
-                    <Label Text="Indeks: " Grid.Column="0" Grid.Row="2" />
-                    <Entry x:Name="Index" Placeholder="Indeks" Grid.Column="1" Grid.Row="2" Text="{Binding Index}" />
-                    <Label Text="Płeć: " Grid.Column="0" Grid.Row="3" />
-                    <Picker Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Sex}">
+                    <Label Text="{Binding LastnameError}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"  />
+                    <Label Text="Indeks: " Grid.Column="0" Grid.Row="4" />
+                    <Entry x:Name="Index" Placeholder="Indeks" Grid.Column="1" Grid.Row="4" Text="{Binding Index}" />
+                    <Label Text="{Binding IndexError}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"  />
+                    <Label Text="Płeć: " Grid.Column="0" Grid.Row="6" />
+                    <Picker x:Name="SexPicker" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding Sex}">
                         <Picker.Items>
                             <x:String>Mężczyzna</x:String>
                             <x:String>Kobieta</x:String>
