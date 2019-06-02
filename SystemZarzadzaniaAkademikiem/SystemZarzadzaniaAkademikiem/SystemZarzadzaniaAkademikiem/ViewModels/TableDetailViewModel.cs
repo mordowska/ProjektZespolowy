@@ -46,17 +46,23 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                                     if (room.StudentA == user.Index)
                                     {
                                         room.StudentA = null;
+                                        roomRepo.SaveRoomAsync(room);
                                         if(userRepo.GetUserAsync(room.StudentB).Result != null)
                                         {
-                                            userRepo.GetUserAsync(room.StudentB).Result.RoomMate = false;
+                                            var roommate = userRepo.GetUserAsync(room.StudentB).Result;
+                                            roommate.RoomMate = false;
+                                            userRepo.SaveUserAsync(roommate);
                                         }
                                     }
                                     else if (room.StudentB == user.Index)
                                     {
                                         room.StudentB = null;
+                                        roomRepo.SaveRoomAsync(room);
                                         if (userRepo.GetUserAsync(room.StudentA).Result != null)
                                         {
-                                            userRepo.GetUserAsync(room.StudentA).Result.RoomMate = false;
+                                            var roommate = userRepo.GetUserAsync(room.StudentB).Result;
+                                            roommate.RoomMate = false;
+                                            userRepo.SaveUserAsync(roommate);
                                         }
                                     }
                                 }
