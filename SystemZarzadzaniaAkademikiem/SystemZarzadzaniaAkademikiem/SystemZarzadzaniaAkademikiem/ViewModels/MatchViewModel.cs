@@ -28,8 +28,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             get => _users;
             set
             {
-                _users = userRepo.GetUsersAsync().Result;
                 _users = value;
+                _users = userRepo.GetUsersAsync().Result;
                 OnPropertyChanged();
             }
         }
@@ -39,8 +39,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             get => _rooms;
             set
             {
-                _rooms = roomRepo.GetRoomsAsync().Result;
                 _rooms = value;
+                _rooms = roomRepo.GetRoomsAsync().Result;
                 OnPropertyChanged();
             }
         }
