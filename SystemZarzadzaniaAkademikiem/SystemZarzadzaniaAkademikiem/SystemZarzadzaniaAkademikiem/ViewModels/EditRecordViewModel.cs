@@ -41,18 +41,31 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                     List<SQLiteConnection.ColumnInfo> list = App.Database.DatabaseNotAsync.GetTableInfo(tableName);
                     foreach (var a in list)
                     {
-                        if (a.Name.ToLower() != "id")
+                        if (a.Name.ToLower() != "id" &&a.Name.ToLower() != "salt")
                         {
                             Column c = new Column { Name = a.Name,Value="" };
                             Columns.Add(c);
                         }
                     }
                     var o =RunSql("SELECT * FROM "+tableName+" WHERE Id="+id);
-                    for(int i = 1; i < o.Length; i++)
+                    if (tableName == "SuperUser")
                     {
-                        if (o[i] != null)
+                        for (int i = 1; i < o.Length-1; i++)
                         {
-                            Columns[i - 1].Value = o[i].ToString();
+                            if (o[i] != null)
+                            {
+                                Columns[i - 1].Value = o[i].ToString();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 1; i < o.Length; i++)
+                        {
+                            if (o[i] != null)
+                            {
+                                Columns[i - 1].Value = o[i].ToString();
+                            }
                         }
                     }
 
