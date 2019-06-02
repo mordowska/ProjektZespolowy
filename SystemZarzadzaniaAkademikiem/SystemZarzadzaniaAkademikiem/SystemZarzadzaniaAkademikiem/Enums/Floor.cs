@@ -6,13 +6,13 @@ namespace SystemZarzadzaniaAkademikiem.Enums
     {
         [Display(Description = "")]
         Empty,
-        [Display(Description = "Pierwsza")]
+        [Display(Description = "Pierwsze")]
         First,
-        [Display(Description = "Druga")]
+        [Display(Description = "Drugie")]
         Second,
-        [Display(Description = "Trzecia")]
+        [Display(Description = "Trzecie")]
         Third,
-        [Display(Description = "Czwarta")]
+        [Display(Description = "Czwarte")]
         Fourth
     }
 

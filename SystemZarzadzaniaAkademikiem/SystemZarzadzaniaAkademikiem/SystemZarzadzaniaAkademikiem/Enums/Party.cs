@@ -6,7 +6,7 @@ namespace SystemZarzadzaniaAkademikiem.Enums
     {
         [Display(Description = "")]
         Empty,
-        [Display(Description = "Nie chodze/bardzo rzadko")]
+        [Display(Description = "Nie chodzę/bardzo rzadko")]
         VeryRare,
         [Display(Description = "1 raz w tygodniu")]
         Rare,
