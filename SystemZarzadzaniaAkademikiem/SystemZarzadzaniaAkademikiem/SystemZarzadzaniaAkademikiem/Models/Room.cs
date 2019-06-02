@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SQLite;
+using SystemZarzadzaniaAkademikiem.Enums;
 
 namespace SystemZarzadzaniaAkademikiem.Models
 {
@@ -9,7 +11,7 @@ namespace SystemZarzadzaniaAkademikiem.Models
         public int RoomNumber { get; set; }
         public string StudentA { get; set; }
         public string StudentB { get; set; }
-        public string Floor { set; get; }
+        public Floor Floor { set; get; }
 
         public Room(List<string> list)
         {
@@ -17,7 +19,8 @@ namespace SystemZarzadzaniaAkademikiem.Models
             RoomNumber = result;
             StudentA = list[1];
             StudentB = list[2];
-            Floor = list[3];
+            Enum.TryParse(list[3], out Floor floorResult);
+            Floor = floorResult;
         }
 
         public Room()

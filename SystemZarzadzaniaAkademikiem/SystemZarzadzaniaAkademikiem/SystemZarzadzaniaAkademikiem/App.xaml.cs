@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using SystemZarzadzaniaAkademikiem.Services;
 using System.Security.Cryptography;
 using System.Text;
+using SystemZarzadzaniaAkademikiem.Enums;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SystemZarzadzaniaAkademikiem
@@ -103,8 +104,9 @@ namespace SystemZarzadzaniaAkademikiem
                     }
                     else
                     {
-                        int.TryParse(values[0], out int result);                             
-                        roomRepo.SaveRoomAsync(new Room { RoomNumber = result, Floor = values[1]});
+                        int.TryParse(values[0], out int result);
+                        Enum.TryParse<Floor>(values[1], out Floor floor);
+                        roomRepo.SaveRoomAsync(new Room { RoomNumber = result, Floor = floor});
                     }
                 }
             }

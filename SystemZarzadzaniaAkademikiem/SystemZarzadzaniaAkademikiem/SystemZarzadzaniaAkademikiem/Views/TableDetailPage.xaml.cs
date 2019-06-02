@@ -64,6 +64,7 @@ namespace SystemZarzadzaniaAkademikiem.Views
                                 }
                                 else
                                 {
+
                                     var label = new Label { Text = objects[row][column].ToString() };
                                     mainGrid.Children.Add(label, column, row + 1);
                                     j = column;
@@ -103,7 +104,10 @@ namespace SystemZarzadzaniaAkademikiem.Views
         {
             await Navigation.PushAsync(new AddRecordPage(viewModel?.name));
         }
-        
+        /*public Label ChangeEnumIntToString(int column,int enumInt)
+        {
+
+        }*/
         private List<object[]> RunSql(string sqlString, bool includeColumnNamesAsFirstRow)
         {
             var lstRes = new List<object[]>();
