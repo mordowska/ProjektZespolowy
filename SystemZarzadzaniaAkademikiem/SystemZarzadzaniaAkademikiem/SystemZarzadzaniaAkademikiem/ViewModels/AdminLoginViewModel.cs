@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    internal class AdminLoginViewModel : BaseViewModel
+    public class AdminLoginViewModel : BaseViewModel
     {
         private readonly AdminRepo adminRepo;
         private string _login;

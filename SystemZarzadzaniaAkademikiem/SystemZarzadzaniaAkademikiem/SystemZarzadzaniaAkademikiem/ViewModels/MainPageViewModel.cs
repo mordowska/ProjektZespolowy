@@ -9,7 +9,7 @@ using SystemZarzadzaniaAkademikiem.Models;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    class MainPageViewModel : BaseViewModel
+    public class MainPageViewModel : BaseViewModel
     {
         static int MaxCounter = 1;
         public Command ActivateAdminLogin { get; set; }

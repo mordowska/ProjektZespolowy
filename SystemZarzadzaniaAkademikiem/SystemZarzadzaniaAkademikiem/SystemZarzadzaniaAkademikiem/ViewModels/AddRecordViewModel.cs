@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    class AddRecordViewModel : BaseViewModel
+    public class AddRecordViewModel : BaseViewModel
     {
         private UserRepo userRepo;
         private AdminRepo adminRepo;
