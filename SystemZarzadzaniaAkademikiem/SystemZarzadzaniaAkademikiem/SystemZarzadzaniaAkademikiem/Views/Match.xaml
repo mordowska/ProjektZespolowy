@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
              x:Class="SystemZarzadzaniaAkademikiem.Views.Match">
     <ContentPage.Content>
-      <StackLayout>
-          <Label Text="{Binding Wynik}" FontSize="Large"  TextColor="MediumBlue"  TextDecorations="Underline" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Button Text="Wroc do głównej strony" Clicked="Button_ClickedAsync"></Button>
-      </StackLayout>
+        <StackLayout>
+            <Grid HorizontalOptions="FillAndExpand" Padding="50">
+                <Label Text="{Binding Wynik}" FontSize="Large" TextColor="MediumBlue" TextDecorations="Underline"
+                       VerticalOptions="Center" HorizontalOptions="Center" />
+            </Grid>
+            <Button Text="Wroc do głównej strony" Clicked="Button_ClickedAsync" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
