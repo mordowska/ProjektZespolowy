@@ -92,8 +92,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             else room.StudentB = this.user.Index;
             user.RoomMate = true;
             this.user.RoomMate = true;
-            user.RoomNumber = room.RoomNumber;
+            this.user.RoomNumber = room.RoomNumber;
             roomRepo.SaveRoomAsync(room);
+            userRepo.SaveUserAsync(user);
             userRepo.SaveUserAsync(this.user);
             Wynik = $"Gratulacje, Ty i Twój współlokator pasujecie do siebie w {(points * 100) / maxPoints} procentach! Twój pokój to {room.RoomNumber}";
         }
