@@ -12,27 +12,24 @@
             <Grid HorizontalOptions="FillAndExpand" Padding="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Text="Imię: " />
-                    <Entry x:Name="Name" Placeholder="Imię" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" />
-                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding NameError}" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" />
-                    <Label Text="Nazwisko: " Grid.Column="0" Grid.Row="2" />
-                    <Entry x:Name="Lastname" Placeholder="Nazwisko" Grid.Column="1" Grid.Row="2"
-                           Text="{Binding Lastname}" />
-                    <Label Text="{Binding LastnameError}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"  />
-                    <Label Text="Indeks: " Grid.Column="0" Grid.Row="4" />
-                    <Entry x:Name="Index" Placeholder="Indeks" Grid.Column="1" Grid.Row="4" Text="{Binding Index}" />
-                    <Label Text="{Binding IndexError}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"  />
-                    <Label Text="Płeć: " Grid.Column="0" Grid.Row="6" />
-                    <controls:EnumBindablePicker x:TypeArguments="enums:Sex" SelectedItem="{Binding Sex}" Grid.Column="1" Grid.Row="6"></controls:EnumBindablePicker>
-                </Grid>
-                <Grid Grid.Column="1" />
+                <Label Grid.Column="0" Grid.Row="0" Text="Imię: " />
+                <Entry x:Name="Name" Placeholder="Imię" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" />
+                <Label Grid.Column="0" Grid.Row="1" Text="{Binding NameError}" Grid.ColumnSpan="2"
+                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" />
+                <Label Text="Nazwisko: " Grid.Column="0" Grid.Row="2" />
+                <Entry x:Name="Lastname" Placeholder="Nazwisko" Grid.Column="1" Grid.Row="2"
+                       Text="{Binding Lastname}" />
+                <Label Text="{Binding LastnameError}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" />
+                <Label Text="Indeks: " Grid.Column="0" Grid.Row="4" VerticalTextAlignment="Center" />
+                <Entry x:Name="Index" Placeholder="Indeks" Grid.Column="1" Grid.Row="4" Text="{Binding Index}" />
+                <Label Text="{Binding IndexError}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"
+                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" />
+                <Label Text="Płeć: " Grid.Column="0" Grid.Row="6" VerticalTextAlignment="Center" />
+                <controls:EnumBindablePicker x:TypeArguments="enums:Sex" SelectedItem="{Binding Sex}" Grid.Column="1"
+                                             Grid.Row="6" />
             </Grid>
             <Button Text="Dalej" Command="{Binding SaveImportantDataPreferences}" Clicked="Button_ClickedAsync" />
         </StackLayout>
