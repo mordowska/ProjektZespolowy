@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using SystemZarzadzaniaAkademikiem.Services;
+using SystemZarzadzaniaAkademikiem.Validators;
 using SystemZarzadzaniaAkademikiem.Views;
 using Xamarin.Forms;
 
@@ -10,6 +11,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         private readonly AdminRepo adminRepo;
         private string _login;
         private string _password;
+        private string _loginError;
+        private string _passwordError;
 
         public AdminLoginViewModel()
         {
@@ -25,6 +28,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             {
                 _login = value;
                 OnPropertyChanged();
+                LoginError = !ValidateLogin() ? "Pole nie może być puste" : "";
             }
         }
 
@@ -35,15 +39,48 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             {
                 _password = value;
                 OnPropertyChanged();
+                PasswordError = !ValidatePassword() ? "Pole nie może być puste" : "";
             }
         }
-
+        private bool ValidatePassword()
+        {
+            return Validator.EmptyField(Password);
+        }
+        private bool ValidateLogin()
+        {
+            return Validator.EmptyField(Login);
+        }
+        public string PasswordError
+        {
+            get => _passwordError;
+            set
+            {
+                _passwordError = value;
+                OnPropertyChanged();
+            }
+        }
+        public string LoginError
+        {
+            get => _loginError;
+            set
+            {
+                _loginError = value;
+                OnPropertyChanged();
+            }
+        }
         public Command LoginAsAdmin { get; set; }
 
         private async void ExecuteLoginAsAdmin()
         {
-            if (_login == adminRepo.GetAdmin().Result.Login && _password == StringCipher.Decrypt(adminRepo.GetAdmin().Result.Password,adminRepo.GetAdmin().Result.Salt)) 
+            if (_login != adminRepo.GetAdmin().Result.Login || _password == StringCipher.Decrypt(adminRepo.GetAdmin().Result.Password, adminRepo.GetAdmin().Result.Salt))
+            {
+                    PasswordError = "Hasło albo login nie są prawidłowe";
+                    LoginError = "Hasło albo login nie są prawidłowe";
+            }
+            else
+            {
                 await Application.Current.MainPage.Navigation.PushAsync(new CRUDMainPage());
+            }
         }
     }
 }
