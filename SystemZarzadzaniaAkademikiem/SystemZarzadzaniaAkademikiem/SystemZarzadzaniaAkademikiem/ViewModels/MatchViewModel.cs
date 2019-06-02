@@ -7,7 +7,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
     public class MatchViewModel : BaseViewModel
     {
-        private const int maxPoints = 12;
+        private const int maxPoints = 13;
         public readonly string index;
         private readonly RoomRepo roomRepo;
         private readonly User user;
@@ -25,7 +25,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             Rooms = roomRepo.GetRoomsAsync().Result;
             Users = userRepo.GetUsersAsync().Result;
             user = userRepo.GetUserAsync(index).Result;
-            DecideWhatToDo();
         }
 
         public void SavePoints()
@@ -103,14 +102,13 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         {
             SavePoints();
             User user = null;
-            if (points >= 9)
+            if (points >= 10)
             {
                 user = userRepo.GetUserAsync(bestCandidate).Result;
                 var room = roomRepo.GetRoomAsync(user.RoomNumber).Result;
-                if (room.StudentA != null && room.StudentB != null)
+                if (!RoomHasFreeSlot(room))
                     ContactWithAdmin();
-                else
-                    Accomodate(room);
+                else Accomodate(room);
             }
             else
             {
@@ -118,10 +116,9 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 if (room == null)
                 {
                     var roomBestCandidate = roomRepo.GetRoomAsync(user.RoomNumber).Result;
-                    if (RoomHasFreeSlot(roomBestCandidate))
-                        Accomodate(roomBestCandidate);
-                    else
+                    if (!RoomHasFreeSlot(roomBestCandidate))
                         ContactWithAdmin();
+                    else Accomodate(roomBestCandidate); 
                 }
                 else
                 {
