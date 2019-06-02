@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace SystemZarzadzaniaAkademikiem.Validators
 {
-    class Validator
+    public class Validator
     {
         public static bool EmptyField(string field)
         {
