@@ -27,10 +27,10 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             user = userRepo.GetUserAsync(index).Result;
         }
 
-        public void SavePoints(List<User> users = null)
+        public void SavePoints()
         {
             points = 0;
-            foreach (var usr in users ?? Users)
+            foreach (var usr in Users)
                 if (usr.Index != index && usr.Sex == user.Sex && usr.RoomMate == false)
                     CountPoints(usr);
         }
@@ -90,6 +90,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
             user.RoomMate = true;
             this.user.RoomMate = true;
             user.RoomNumber = room.RoomNumber;
+            roomRepo.SaveRoomAsync(room);
+            userRepo.SaveUserAsync(this.user);
             Wynik = $"Gratulacje, Ty i Twój współlokator pasujecie do siebie w {(float)points/maxPoints} procentach! Twój pokój to {room.RoomNumber}";
         }
         
@@ -121,6 +123,8 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 {
                     room.StudentA = this.user.Index;
                     this.user.RoomNumber = room.RoomNumber;
+                    roomRepo.SaveRoomAsync(room);
+                    userRepo.SaveUserAsync(this.user);
                     Wynik = $"Twój pokój to {room.RoomNumber}.";
                 }
             }
