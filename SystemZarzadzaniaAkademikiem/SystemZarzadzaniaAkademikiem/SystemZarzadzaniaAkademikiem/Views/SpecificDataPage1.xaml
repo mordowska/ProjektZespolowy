@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
+             xmlns:controls="clr-namespace:SystemZarzadzaniaAkademikiem.Controls;assembly=SystemZarzadzaniaAkademikiem"
+             xmlns:enums="clr-namespace:SystemZarzadzaniaAkademikiem.Enums"
     x:Class="SystemZarzadzaniaAkademikiem.Views.SpecificDataPage1">
     <ContentPage.Content>
         <StackLayout>
@@ -13,73 +14,25 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Text="Wybierz preferowane piętro"
                    />
-                <Picker x:Name="Floor" Grid.Column="1" SelectedItem="{Binding Floor}">
-                    <Picker.Items>
-                        <x:String>1</x:String>
-                        <x:String>2</x:String>
-                        <x:String>3</x:String>
-                        <x:String>4</x:String>
-                    </Picker.Items>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                <controls:EnumBindablePicker  x:TypeArguments="enums:Floor" SelectedItem="{Binding Floor}" Grid.Column="1"></controls:EnumBindablePicker>
                 <Label Grid.Column="0" Grid.Row="1" Text="Wolisz łóżko przy oknie czy przy drzwiach?"
                    />
-                <Picker x:Name="BedLocation" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding BedLocation}">
-                    <Picker.Items>
-                        <x:String>Przy oknie</x:String>
-                        <x:String>Przy drzwiach</x:String>
-                    </Picker.Items>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                <controls:EnumBindablePicker  x:TypeArguments="enums:BedLocation" SelectedItem="{Binding BedLocation}" Grid.Column="1" Grid.Row="1"></controls:EnumBindablePicker>
                 <Label Grid.Column="0" Grid.Row="2" Text="Kiedy zazwyczaj chodzisz spać?"
                    />
-                <Picker x:Name="SleepTime" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding SleepTime}">
-                    <Picker.Items>
-                        <x:String>Przed 22.30</x:String>
-                        <x:String>22.30-24</x:String>
-                        <x:String>Po 24</x:String>
-                    </Picker.Items>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                <controls:EnumBindablePicker  x:TypeArguments="enums:SleepTime" SelectedItem="{Binding SleepTime}" Grid.Column="1" Grid.Row="2"></controls:EnumBindablePicker>
                 <Label Grid.Column="0" Grid.Row="3" Text="Kiedy zazwyczaj wstajesz?"
                    />
-                <Picker x:Name="WakeUpTime" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding WakeUpTime}">
-                    <Picker.Items>
-                        <x:String>Przed 6.00</x:String>
-                        <x:String>6.00-8.00</x:String>
-                        <x:String>8.00-10.00</x:String>
-                        <x:String>10.00-12.00</x:String>
-                        <x:String>Po 12.00</x:String>
-                    </Picker.Items>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                <controls:EnumBindablePicker  x:TypeArguments="enums:WakeUpTime" SelectedItem="{Binding WakeUpTime}" Grid.Column="1" Grid.Row="3"></controls:EnumBindablePicker>
                 <Label Grid.Column="0" Grid.Row="4" Text="Wolisz gdy w pokoju jest cieplej czy chłodniej?"
                    />
-                <Picker x:Name="HotOrNot" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding HotOrNot}">
-                    <Picker.Items>
-                        <x:String>Cieplej</x:String>
-                        <x:String>Chłodniej</x:String>
-                    </Picker.Items>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                <controls:EnumBindablePicker  x:TypeArguments="enums:HotOrNot" SelectedItem="{Binding HotOrNot}" Grid.Column="1" Grid.Row="4"></controls:EnumBindablePicker>
                 <Label Grid.Column="0" Grid.Row="5" Text="Gdy słuchasz muzyki, wolisz słuchać ją przy pomocy głośników czy słuchawek?"
                    />
-                <Picker x:Name="Music" Grid.Column="1" Grid.Row="5" SelectedItem="{Binding Music}">
-                    <Picker.Items>
-                        <x:String>Słuchawki</x:String>
-                        <x:String>Głośniki</x:String>
-                    </Picker.Items>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                <controls:EnumBindablePicker  x:TypeArguments="enums:Music" SelectedItem="{Binding Music}" Grid.Column="1" Grid.Row="5"></controls:EnumBindablePicker>
                 <Label Grid.Column="0" Grid.Row="6" Text="Czy sprzątasz systematycznie?"
                    />
-                <Picker x:Name="CleanUp" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding CleanUp}">
-                    <Picker.Items>
-                        <x:String>Tak</x:String>
-                        <x:String>Nie</x:String>
-                    </Picker.Items>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                <controls:EnumBindablePicker  x:TypeArguments="enums:YesNo" SelectedItem="{Binding CleanUp}" Grid.Column="1" Grid.Row="6"></controls:EnumBindablePicker>
             </Grid>
             <Button Text="Dalej" Command="{Binding SaveSpecificData1}" Clicked="Button_ClickedAsync"/>
         </StackLayout>

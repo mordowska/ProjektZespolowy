@@ -2,6 +2,8 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SystemZarzadzaniaAkademikiem.Controls;assembly=SystemZarzadzaniaAkademikiem"
+             xmlns:enums="clr-namespace:SystemZarzadzaniaAkademikiem.Enums;assembly=SystemZarzadzaniaAkademikiem"
              x:Class="SystemZarzadzaniaAkademikiem.Views.ImportantDataPage">
     <ContentPage.Content>
         <StackLayout>
@@ -28,12 +30,7 @@
                     <Entry x:Name="Index" Placeholder="Indeks" Grid.Column="1" Grid.Row="4" Text="{Binding Index}" />
                     <Label Text="{Binding IndexError}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"  />
                     <Label Text="Płeć: " Grid.Column="0" Grid.Row="6" />
-                    <Picker x:Name="SexPicker" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding Sex}">
-                        <Picker.Items>
-                            <x:String>Mężczyzna</x:String>
-                            <x:String>Kobieta</x:String>
-                        </Picker.Items>
-                    </Picker>
+                    <controls:EnumBindablePicker x:TypeArguments="enums:Sex" SelectedItem="{Binding Sex}" Grid.Column="1" Grid.Row="6"></controls:EnumBindablePicker>
                 </Grid>
                 <Grid Grid.Column="1" />
             </Grid>
