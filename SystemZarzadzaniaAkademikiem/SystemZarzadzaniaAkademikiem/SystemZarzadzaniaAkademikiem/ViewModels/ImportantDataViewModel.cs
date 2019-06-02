@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    internal class ImportantDataViewModel : BaseViewModel
+    public class ImportantDataViewModel : BaseViewModel
     {
         private readonly User user = null;
         private string _index = "";

@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    class AdminChangeViewModel : BaseViewModel
+    public class AdminChangeViewModel : BaseViewModel
     {
         private string _newLogin;
         private string _newPassword;

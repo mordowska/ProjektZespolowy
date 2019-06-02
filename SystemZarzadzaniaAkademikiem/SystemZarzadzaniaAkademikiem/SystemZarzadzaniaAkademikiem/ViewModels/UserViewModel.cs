@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace SystemZarzadzaniaAkademikiem.ViewModels
 {
-    class UserViewModel : BaseViewModel
+    public class UserViewModel : BaseViewModel
     {
         private string _floor = "";
         private string _bedLocation = "";
