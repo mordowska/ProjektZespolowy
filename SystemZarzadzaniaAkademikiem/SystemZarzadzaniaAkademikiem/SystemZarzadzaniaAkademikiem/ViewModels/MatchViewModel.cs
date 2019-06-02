@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SystemZarzadzaniaAkademikiem.Models;
 using SystemZarzadzaniaAkademikiem.Services;
 
@@ -60,9 +61,12 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
 
         public Room FindFreeRoom()
         {
-            foreach (var room in Rooms)
-                if (room.StudentA == null && room.StudentB == null)
+            IEnumerable<Room> rooms = Rooms.Where(r => r.StudentA == null && r.StudentB == null);
+            foreach (var room in rooms) {
+                if (room.Floor == user.Floor)
                     return room;
+                return rooms.First();
+            }
             return null;
         }
 
@@ -90,6 +94,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         
         public void DecideWhatToDo()
         {
+            SavePoints();
             User user = null;
             if (points >= 9)
             {
