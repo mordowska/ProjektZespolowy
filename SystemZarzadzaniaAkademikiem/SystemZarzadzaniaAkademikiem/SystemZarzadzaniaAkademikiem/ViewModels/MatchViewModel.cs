@@ -65,12 +65,13 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         public Room FindFreeRoom()
         {
             IEnumerable<Room> rooms = Rooms.Where(r => r.StudentA == null && r.StudentB == null);
-            foreach (var room in rooms) {
-                if (room.Floor == user.Floor)
-                    return room;
-                return rooms.First();
+            foreach (var room in rooms)
+            {
+                if (room.Floor != user.Floor)
+                    continue;
+                else return room;
             }
-            return null;
+            return rooms.Any() ? rooms.First() : null;
         }
 
         public static bool RoomHasFreeSlot(Room room)
