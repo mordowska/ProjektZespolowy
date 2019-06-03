@@ -11,9 +11,7 @@ namespace SystemZarzadzaniaAkademikiem.Enums
         [Display(Description = "Drugie")]
         Second,
         [Display(Description = "Trzecie")]
-        Third,
-        [Display(Description = "Czwarte")]
-        Fourth
+        Third
     }
 
 }
