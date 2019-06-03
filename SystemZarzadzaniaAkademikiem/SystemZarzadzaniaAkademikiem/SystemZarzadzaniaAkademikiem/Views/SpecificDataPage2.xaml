@@ -10,6 +10,7 @@
             <Label
                 Text="Proszę wypełnić specyficzne dane, które są potrzebne do znalezienia odpowiedniego współlokatora."
                 HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+            <Label Text="Wszystkie pola są wymagane." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
             <Grid Padding="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

@@ -37,13 +37,6 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
                 user.CleanUp = CleanUp;
                 await userRepo.SaveUserAsync(user);
             }
-            else
-            {
-                if (!ValidateBedLocation())
-                {
-                    BedLocationError = "Error";
-                }
-            }
         }
 
         public bool Validate()
