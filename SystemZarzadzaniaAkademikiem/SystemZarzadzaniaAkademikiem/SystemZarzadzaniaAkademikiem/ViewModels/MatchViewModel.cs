@@ -8,6 +8,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
     public class MatchViewModel : BaseViewModel
     {
         private const int maxPoints = 13;
+        private const int minPoints = 10;
         public readonly string index;
         private readonly RoomRepo roomRepo;
         private readonly User user;
@@ -104,7 +105,7 @@ namespace SystemZarzadzaniaAkademikiem.ViewModels
         {
             SavePoints();
             User user = null;
-            if (points >= 10)
+            if (points >= minPoints)
             {
                 user = userRepo.GetUserAsync(bestCandidate).Result;
                 var room = roomRepo.GetRoomAsync(user.RoomNumber).Result;
